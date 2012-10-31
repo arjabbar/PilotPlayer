@@ -1,0 +1,116 @@
+<html>
+<head>
+<title></title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("ul").hover(function(){
+			$(this).find("li").show(200);
+		}, function(){
+			$(this).find("li").hide(200);
+		});
+	});
+</script>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<style type="text/css">
+
+:root {
+	background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(rgba(0, 100, 0, 0.1)));
+	
+}
+
+html {
+	font-family: 'Open Sans Condensed', sans-serif;
+	margin-left: -100px;
+	margin-right: -25px;
+	
+}
+
+body {
+	text-align: center;
+}
+
+h1 {
+	position:relative;
+	left: 25px;
+}
+
+h2 {
+	padding: 0;
+}
+
+ul {
+	font-size: 1.5em;
+	list-style-type: none;
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+
+li {
+	display:none;
+	-webkit-transition: background-color 250ms;
+	
+}
+
+li:hover {
+	background-color: rgba(0, 144, 0, 0.2);
+}
+
+li:hover:after {
+	content: attr("title");
+	position: relative;
+	left: 50px;
+	color:black;
+}
+
+
+
+ul {
+	display:block;
+	border-top: solid 2px darkgreen;
+	border-bottom: solid 2px darkgreen;
+	border-radius: 3px;
+	margin-right: auto;
+	-webkit-transition: 1s all;
+	overflow:hidden;
+}
+
+ul:hover {
+	background-color: rgba(0, 141, 0, 0.2);
+}
+
+:active, :visited, :link {
+	text-decoration: none;
+	color: black;
+}
+
+:visited {
+	color: darkgreen;
+}
+
+</style>
+</head>
+<body>
+
+<h1>RESOURCES</h1>
+<ul id="rss"><h2>RSS</h2>
+	<li><a href="http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=5&cad=rja&ved=0CEYQtwIwBA&url=http%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DG3y7VNw8ksY&ei=_hdvUOHDFOqU2QWYq4HQDw&usg=AFQjCNFCONWHfvQSWtXW5uc19rA44gmmYw" class="video" title="Video">Youtube - Creating A RSS Feed In 15 Minutes</a></li>
+	<li><a href="http://www.geekpedia.com/tutorial147_Creating-an-RSS-feed-reader-in-Csharp.html" class="article" title="Article">Geekpedia - RSS Feeder Tutorial</a></li>
+	<li><a href="http://www.w3schools.com/rss/rss_syntax.asp" title="Article">W3 - RSS Anantomy</a></li>
+	<li><a href="http://en.wikipedia.org/wiki/RSS" title="Wiki">Wiki - RSS</a></li>
+</ul>
+
+<ul id="playingvideos"><h2>Playing Videos</h2>
+	<li><a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb324497(v=vs.85).aspx" class="article" title="Article">MSDN - Audio Video Playback</a></li>
+	<li><a href="http://www.youtube.com/watch?v=eCvPy3OMWlw" class="video" title="Video">Youtube - Simple Video Player in WPF</a></li>
+	<li><a href="http://www.codeproject.com/Articles/18552/C-Movie-Player" class="article" title="Article">Code Project - C# Video Player Source Code</a></li>
+</ul>
+
+<ul id="other"><h2>Other</h2>
+	<li><a href="http://code.msdn.microsoft.com/windowsdesktop/CSImageFullScreenSlideShow-79e29568" class="article" title="Article">MSDN - Image Slideshow Fullscreen</a></li>
+	<li><a href="http://www.codeproject.com/Articles/9384/Full-Screen-Mode-in-C" class="article" title="Article">Code Project - Full Screen Mode</a></li>
+</ul>
+
+</body>
+</html>
