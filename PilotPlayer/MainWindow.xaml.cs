@@ -22,6 +22,23 @@ namespace PilotPlayer
         public MainWindow()
         {
             InitializeComponent();
+            WindowState = WindowState.Normal;
+            WindowStyle = WindowStyle.None;
+            Topmost = true;
+            WindowState = WindowState.Maximized;
+        }
+
+        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                this.Close();
+            }
         }
     }
 }

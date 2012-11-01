@@ -1,0 +1,13 @@
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.pdb
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.baml
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.g.cs
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\App.g.cs
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.cache
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
