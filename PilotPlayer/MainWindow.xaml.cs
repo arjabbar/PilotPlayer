@@ -19,13 +19,22 @@ namespace PilotPlayer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MediaObject mObject;
+
         public MainWindow()
         {
             InitializeComponent();
             WindowState = WindowState.Normal;
             WindowStyle = WindowStyle.None;
             Topmost = true;
-            WindowState = WindowState.Maximized;
+            //WindowState = WindowState.Maximized;
+            primaryMediaElement.LoadedBehavior = MediaState.Manual;
+            primaryMediaElement.Clock = null;
+            System.Uri mediaURI = new System.Uri("e:/video.wmv");
+        
+            primaryMediaElement.Source = mediaURI;
+            mObject = new MediaObject(primaryMediaElement);
+            mObject.playVideoMedia();
         }
 
         private void Grid_KeyDown(object sender, KeyEventArgs e)
@@ -39,6 +48,15 @@ namespace PilotPlayer
             {
                 this.Close();
             }
+            if (e.Key == Key.P)
+            {
+                mObject.displayMedia();
+            }
+            if (e.Key == Key.Space)
+            {
+                mObject.pauseVideoMedia();
+            }
+
         }
     }
 }
