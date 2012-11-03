@@ -11,3 +11,5 @@ C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResourc
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
+D:\Repos\PilotPlayer\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+D:\Repos\PilotPlayer\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
