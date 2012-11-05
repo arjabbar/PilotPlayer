@@ -13,3 +13,18 @@ C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
 D:\Repos\PilotPlayer\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
 D:\Repos\PilotPlayer\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.pdb
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.baml
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.g.cs
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\App.g.cs
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.cache
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.baml
+C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
