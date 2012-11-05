@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -21,8 +22,16 @@ namespace PilotPlayer
     /// </summary>
     public partial class UploadMedia : Window
     {
+        SqlConnection sc;
+        SqlCommand sqlCmd;
+        SqlDataAdapter sqlAdapter;
+        SqlDataReader sqlRdr;
+
         public UploadMedia()
         {
+            string dbPath = System.Windows.Forms.Application.StartupPath + "\\PPDB.sdf";
+            sc = new SqlConnection("Data Source=.\\SQLEXPRESS;AttachDbFilename=" + dbPath + ";Integrated Security=True;User Instance=True");
+
             InitializeComponent();
         }
 

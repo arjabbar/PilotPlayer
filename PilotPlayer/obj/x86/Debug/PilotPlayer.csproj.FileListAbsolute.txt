@@ -28,3 +28,21 @@ C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\
 C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.baml
 C:\Documents and Settings\Administrator\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
+D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe
+D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.pdb
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.baml
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.baml
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.g.cs
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\App.g.cs
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.cache
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PPDB.sdf
+D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_Content.g.cs

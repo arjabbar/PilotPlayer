@@ -8,9 +8,9 @@
         <TextBox Height="23" HorizontalAlignment="Left" Margin="74,64,0,0" Name="txtUploadPath" VerticalAlignment="Top" Width="382" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="341,97,0,0" Name="dtPickerStart" VerticalAlignment="Top" Width="115" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="341,141,0,0" Name="dtPickerEnd" VerticalAlignment="Top" Width="115" />
-        <Label Content="Choose a Start Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="161,96,0,115" Name="lblStartDate" VerticalAlignment="Center" />
+        <Label Content="Choose a Start Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="136,97,0,114" Name="lblStartDate" VerticalAlignment="Center" />
         <Label Content="Pilot Player"  FontFamily="Georgia" FontSize="35" Height="50" HorizontalAlignment="Left" Margin="248,12,0,0" Name="lblTitle" VerticalAlignment="Top" Width="258" />
-        <Label Content="Choose an End Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="161,141,0,70" Name="label1" VerticalAlignment="Center" />
+        <Label Content="Choose an End Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="134,140,0,71" Name="label1" VerticalAlignment="Center" />
         <Button Content="Start Slideshow" Height="23" HorizontalAlignment="Left" Margin="462,186,0,0" Name="btnStartSlideshow" VerticalAlignment="Top" Width="103" Click="btnStartSlideshow_Click" />
         
     </Grid>
