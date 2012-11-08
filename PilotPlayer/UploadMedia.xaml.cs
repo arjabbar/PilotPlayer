@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
 using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 
 namespace PilotPlayer
 {
@@ -22,8 +23,17 @@ namespace PilotPlayer
     public partial class UploadMedia : Window
     {
 
+        SqlCeConnection sc;
+        SqlCeCommand sqlCmd;
+        SqlCeDataAdapter sqlAdapter;
+        SqlCeDataReader sqlRdr;
+        Timer timer = new Timer();
+
         public UploadMedia()
         {
+            timer.Interval = 5000;
+            string dbPath = System.Windows.Forms.Application.StartupPath + "\\PilotPlayerDB.sdf";
+            sc = new SqlCeConnection("Data Source=" + dbPath + ";Persist Security Info=False;");
             InitializeComponent();
             Reset();
         }
@@ -55,13 +65,33 @@ namespace PilotPlayer
         //btn Upload will upload the media to the database
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
-            if (txtUploadPath.Text != string.Empty)
+            try
             {
-                //Then upload the media to the database
+                MediaFile mediaFile = new MediaFile(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
+                Console.WriteLine(dtPickerStart.SelectedDate.Value);
+                if (mediaFile.insertMediaFile(sc))
+                {
+                    timer.Tick += new EventHandler(eraseLblError);
+                    lblStatus.Foreground = Brushes.Green;
+                    lblStatus.Content = "Successfully uploaded media.";
+                    check.Visibility = System.Windows.Visibility.Visible;
+                    timer.Start();
+                }
+                else
+                {
+                    timer.Tick += new EventHandler(eraseLblError);
+                    lblStatus.Foreground = Brushes.Red;
+                    lblStatus.Content = "There was an error uploading the media.";
+                    timer.Start();
+                }
             }
-            else
+            catch (InvalidOperationException ioe)
             {
-                System.Windows.Forms.MessageBox.Show("Please select a file to upload.");
+                lblStatus.Foreground = Brushes.Red;
+                lblStatus.Opacity = 1;
+                timer.Tick += new EventHandler(eraseLblError);
+                lblStatus.Content = ioe.Message.Contains("Nullable") ? "Please ensure that you've selected a file and dates." : ioe.Message;
+                timer.Start();
             }
 
         }
@@ -91,6 +121,12 @@ namespace PilotPlayer
             var editMedia = new EditSlideshow();
             editMedia.Show();
 
+        }
+
+        public void eraseLblError(object sender, EventArgs e)
+        {
+            lblStatus.Content = "";
+            timer.Stop();
         }
     }
 }

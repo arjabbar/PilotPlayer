@@ -32,5 +32,15 @@ namespace PilotPlayer.Properties {
                 return ((string)(this["PPDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=|DataDirectory|\\PilotPlayerDB.sdf")]
+        public string PilotPlayerDBConnectionString {
+            get {
+                return ((string)(this["PilotPlayerDBConnectionString"]));
+            }
+        }
     }
 }
