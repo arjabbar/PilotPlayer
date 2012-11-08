@@ -68,7 +68,6 @@ namespace PilotPlayer
             try
             {
                 MediaFile mediaFile = new MediaFile(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
-                Console.WriteLine(dtPickerStart.SelectedDate.Value);
                 if (mediaFile.insertMediaFile(sc))
                 {
                     timer.Tick += new EventHandler(eraseLblError);
@@ -120,7 +119,6 @@ namespace PilotPlayer
         {
             var editMedia = new EditSlideshow();
             editMedia.Show();
-
         }
 
         public void eraseLblError(object sender, EventArgs e)

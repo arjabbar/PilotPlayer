@@ -17,7 +17,6 @@ namespace PilotPlayer
 
         public MediaFile(string path, DateTime startDate, DateTime endDate)
         {
-            Console.WriteLine(path + startDate.ToString());
             if (path == String.Empty)
             {
                 throw new System.InvalidOperationException("Please enter a url for your media.");
@@ -60,6 +59,5 @@ namespace PilotPlayer
                 return false;
             }
         }
-
     }
 }
