@@ -11,7 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlClient;
 
@@ -23,10 +22,20 @@ namespace PilotPlayer
     public partial class UploadMedia : Window
     {
 
-
         public UploadMedia()
         {
             InitializeComponent();
+            Reset();
+        }
+
+        //ensure the textbox is empty when the program starts and date is set to today
+        public void Reset()
+        {
+            txtUploadPath.Text = String.Empty;
+            dtPickerStart.Text = DateTime.Today.ToString();
+            dtPickerEnd.Text = DateTime.Today.ToString();
+            dtPickerStart.DisplayDateStart = DateTime.Now;
+            dtPickerEnd.DisplayDateStart = DateTime.Now;
         }
 
         //btn Choose File will allow the user to choose a file to upload
@@ -46,7 +55,14 @@ namespace PilotPlayer
         //btn Upload will upload the media to the database
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
-
+            if (txtUploadPath.Text != string.Empty)
+            {
+                //Then upload the media to the database
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Please select a file to upload.");
+            }
 
         }
 
@@ -55,10 +71,25 @@ namespace PilotPlayer
         private void btnStartSlideshow_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainApplication;
-                
-            //Will do some error checking here for date ranges, etc
 
-            mainApplication = new MainWindow();
+            if (dtPickerEnd.SelectedDate >= dtPickerStart.SelectedDate 
+                   || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
+            {
+                //then we can start the slideshow. 
+                mainApplication = new MainWindow();
+                mainApplication.Show();
+            }
+            else
+            {
+                System.Windows.Forms.MessageBox.Show("Please enter a possible date range");
+            }
+        }
+
+        //Connects to Edit SlideShow Window
+        private void btnEditSlideshow_Click(object sender, RoutedEventArgs e)
+        {
+            var editMedia = new EditSlideshow();
+            editMedia.Show();
 
         }
     }

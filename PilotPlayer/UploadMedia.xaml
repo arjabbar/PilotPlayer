@@ -1,17 +1,18 @@
 ﻿<Window x:Class="PilotPlayer.UploadMedia"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="UploadMedia" Height="278" Width="716">
+        Title="Upload Media" Height="278" Width="647">
     <Grid>
-        <Button Content="Choose File" Height="23" HorizontalAlignment="Left" Margin="462,64,0,0" Name="btnChooseFile" VerticalAlignment="Top" Width="75" Click="btnChooseFile_Click" />
-        <Button Content="Upload" Height="23" HorizontalAlignment="Left" Margin="543,64,0,0" Name="btnUpload" VerticalAlignment="Top" Width="75" Click="btnUpload_Click" />
-        <TextBox Height="23" HorizontalAlignment="Left" Margin="74,64,0,0" Name="txtUploadPath" VerticalAlignment="Top" Width="382" />
-        <DatePicker Height="25" HorizontalAlignment="Left" Margin="341,97,0,0" Name="dtPickerStart" VerticalAlignment="Top" Width="115" />
-        <DatePicker Height="25" HorizontalAlignment="Left" Margin="341,141,0,0" Name="dtPickerEnd" VerticalAlignment="Top" Width="115" />
-        <Label Content="Choose a Start Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="136,97,0,114" Name="lblStartDate" VerticalAlignment="Center" />
-        <Label Content="Pilot Player"  FontFamily="Georgia" FontSize="35" Height="50" HorizontalAlignment="Left" Margin="248,12,0,0" Name="lblTitle" VerticalAlignment="Top" Width="258" />
-        <Label Content="Choose an End Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="134,140,0,71" Name="label1" VerticalAlignment="Center" />
-        <Button Content="Start Slideshow" Height="23" HorizontalAlignment="Left" Margin="462,186,0,0" Name="btnStartSlideshow" VerticalAlignment="Top" Width="103" Click="btnStartSlideshow_Click" />
+        <Button Content="Choose File" Height="23" HorizontalAlignment="Left" Margin="427,64,0,0" Name="btnChooseFile" VerticalAlignment="Top" Width="75" Click="btnChooseFile_Click" />
+        <Button Content="Upload" Height="23" HorizontalAlignment="Left" Margin="508,64,0,0" Name="btnUpload" VerticalAlignment="Top" Width="75" Click="btnUpload_Click" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="39,64,0,0" Name="txtUploadPath" VerticalAlignment="Top" Width="382" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="306,97,0,0" Name="dtPickerStart" VerticalAlignment="Top" Width="115" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="306,141,0,0" Name="dtPickerEnd" VerticalAlignment="Top" Width="115" />
+        <Label Content="Choose a Start Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="118,97,0,0" Name="lblStartDate" VerticalAlignment="Top" />
+        <Label Content="Pilot Player"  FontFamily="Georgia" FontSize="35" Height="50" HorizontalAlignment="Left" Margin="213,12,0,0" Name="lblTitle" VerticalAlignment="Top" Width="258" />
+        <Label Content="Choose an End Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="117,140,0,0" Name="label1" VerticalAlignment="Top" />
+        <Button Content="Start Slideshow" Height="23" HorizontalAlignment="Left" Margin="427,186,0,0" Name="btnStartSlideshow" VerticalAlignment="Top" Width="103" Click="btnStartSlideshow_Click" />
+        <Button Content="Edit Slideshow" Height="23" HorizontalAlignment="Left" Margin="318,186,0,0" Name="btnEditSlideshow" VerticalAlignment="Top" Width="103" Click="btnEditSlideshow_Click" />
         
     </Grid>
 </Window>

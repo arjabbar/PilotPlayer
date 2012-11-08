@@ -66,15 +66,15 @@ namespace PilotPlayer
         }
 
         //Executes a query passed into the method and returns the result.
-        public SqlDataReader queryDB(/*TODO: Decide on how to pass parameters to this method*/)
-        {
-            SqlCommand sqlCmd = new SqlCommand();
-            SqlDataReader results = new SqlDataReader();
+        //public SqlDataReader queryDB(/*TODO: Decide on how to pass parameters to this method*/)
+        //{
+        //    SqlCommand sqlCmd = new SqlCommand();
+        //    SqlDataReader results = new SqlDataReader();
 
-            //TODO: Execute Query
+        //   // TODO: Execute Query
 
-            return results;
-        }
+        //    return results;
+        //}
 
         //Removes an entry from the media table and returns true if deletion is successful, false otherwise.
         public Boolean removeMedia(/*TODO: Decide on how to pass parameters to this method*/)
