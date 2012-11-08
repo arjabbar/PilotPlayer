@@ -28,7 +28,7 @@ namespace PilotPlayer
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //This code is when I was trying to connect the listView (with a datagrid inside of it) to the database. 
-            PilotPlayer.PPDBDataSet pPDBDataSet = ((PilotPlayer.PPDBDataSet)(this.FindResource("pPDBDataSet")));
+
         }
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)

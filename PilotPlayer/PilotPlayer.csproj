@@ -88,11 +88,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PilotPlayerDBDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="PPDBDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PPDBDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="UploadMedia.xaml.cs">
       <DependentUpon>UploadMedia.xaml</DependentUpon>
     </Compile>
@@ -148,17 +143,6 @@
     <None Include="PilotPlayerDBDataSet.xss">
       <DependentUpon>PilotPlayerDBDataSet.xsd</DependentUpon>
     </None>
-    <None Include="PPDBDataSet.xsc">
-      <DependentUpon>PPDBDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="PPDBDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>PPDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="PPDBDataSet.xss">
-      <DependentUpon>PPDBDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -168,9 +152,6 @@
   <ItemGroup>
     <Resource Include="bin\check.png" />
     <Content Include="PilotPlayerDB.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="PPDB.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

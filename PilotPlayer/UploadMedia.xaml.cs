@@ -72,7 +72,7 @@ namespace PilotPlayer
                 {
                     timer.Tick += new EventHandler(eraseLblError);
                     lblStatus.Foreground = Brushes.Green;
-                    lblStatus.Content = "Successfully uploaded media.";
+                    lblStatus.Content += "Successfully uploaded media.\n";
                     check.Visibility = System.Windows.Visibility.Visible;
                     timer.Start();
                 }
@@ -80,16 +80,24 @@ namespace PilotPlayer
                 {
                     timer.Tick += new EventHandler(eraseLblError);
                     lblStatus.Foreground = Brushes.Red;
-                    lblStatus.Content = "There was an error uploading the media.";
+                    lblStatus.Content += "There was an error uploading the media.\n";
                     timer.Start();
                 }
+            }
+            catch (UriFormatException ufe)
+            {
+                lblStatus.Foreground = Brushes.Red;
+                lblStatus.Opacity = 1;
+                timer.Tick += new EventHandler(eraseLblError);
+                lblStatus.Content += "This file path doesn't seem quite right.\n";
+                timer.Start();
             }
             catch (InvalidOperationException ioe)
             {
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
-                lblStatus.Content = ioe.Message.Contains("Nullable") ? "Please ensure that you've selected a file and dates." : ioe.Message;
+                lblStatus.Content += ioe.Message.Contains("Nullable") ? "Please ensure that you've selected a file and dates.\n" : ioe.Message + "\n";
                 timer.Start();
             }
 

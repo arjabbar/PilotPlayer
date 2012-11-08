@@ -93,11 +93,9 @@ C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\GenerateR
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
-C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PPDB.sdf
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.baml
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.g.cs
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_Content.g.cs
-C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.lref
 C:\Users\a10004323\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.baml

@@ -25,25 +25,32 @@ namespace PilotPlayer
             {
                 throw new System.InvalidOperationException("Please enter a start and end date.");
             }
-            this.url = path;
-            this.fileName = path.Split('\\').Last();
-            this.fileExt = fileName.Split('.').Last();
-            this.fileName = fileName.Split('.').First();
-            this.typeID = MediaFileUtilities.getFileTypeID(this.fileExt);
-            this.fileType = MediaFileUtilities.getFileType(this.fileExt);
-            MediaElement thisMediaFile = new MediaElement();
-            thisMediaFile.Source = new Uri(path);
-            this.width = (int)thisMediaFile.Width;
-            this.height = (int)thisMediaFile.Height;
-            this.dateStart = startDate;
-            this.dateEnd = endDate;
+            
+                this.url = path;
+                this.fileName = path.Split('\\').Last();
+                this.fileExt = fileName.Split('.').Last();
+                this.fileName = fileName.Split('.').First();
+                this.typeID = MediaFileUtilities.getFileTypeID(this.fileExt);
+                this.fileType = MediaFileUtilities.getFileType(this.fileExt);
+                MediaElement thisMediaFile = new MediaElement();
+                thisMediaFile.Source = new Uri(path);
+                this.width = (int)thisMediaFile.Width;
+                this.height = (int)thisMediaFile.Height;
+                this.dateStart = startDate;
+                this.dateEnd = endDate;
+            
             this.insertQuery = "INSERT INTO Media([url],[filename],[file_extension],[type_id],[width],[height],[date_start],[date_end])"
                     + "VALUES ('" + url + "','" + fileName + "','" + fileExt + "','" + typeID + "','" + width + "','"
                     + height + "','" + dateStart + "','" + dateEnd + "');";
+            
         }
 
         public bool insertMediaFile(SqlCeConnection sc)
         {
+            if (String.IsNullOrWhiteSpace(insertQuery))
+            {
+                return false;
+            }
             Console.WriteLine(sc.ConnectionString);
             sc.Open();
             SqlCeDataReader sqlRdr;
