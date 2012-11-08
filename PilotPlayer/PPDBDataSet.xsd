@@ -23,14 +23,7 @@
               <xs:element name="FileExt" msprop:Generator_ColumnVarNameInTable="columnFileExt" msprop:Generator_ColumnPropNameInRow="FileExt" msprop:Generator_ColumnPropNameInTable="FileExtColumn" msprop:Generator_UserColumnName="FileExt" type="xs:string" minOccurs="0" />
               <xs:element name="StartDate" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_UserColumnName="StartDate" type="xs:string" minOccurs="0" />
               <xs:element name="EndDate" msprop:Generator_ColumnVarNameInTable="columnEndDate" msprop:Generator_ColumnPropNameInRow="EndDate" msprop:Generator_ColumnPropNameInTable="EndDateColumn" msprop:Generator_UserColumnName="EndDate" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Type" msprop:Generator_TableClassName="TypeDataTable" msprop:Generator_TableVarName="tableType" msprop:Generator_TablePropName="Type" msprop:Generator_RowDeletingName="TypeRowDeleting" msprop:Generator_UserTableName="Type" msprop:Generator_RowChangingName="TypeRowChanging" msprop:Generator_RowEvHandlerName="TypeRowChangeEventHandler" msprop:Generator_RowDeletedName="TypeRowDeleted" msprop:Generator_RowEvArgName="TypeRowChangeEvent" msprop:Generator_RowChangedName="TypeRowChanged" msprop:Generator_RowClassName="TypeRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="MediaID" msprop:Generator_ColumnVarNameInTable="columnMediaID" msprop:Generator_ColumnPropNameInRow="MediaID" msprop:Generator_ColumnPropNameInTable="MediaIDColumn" msprop:Generator_UserColumnName="MediaID" type="xs:int" />
-              <xs:element name="TypeID" msprop:Generator_ColumnVarNameInTable="columnTypeID" msprop:Generator_ColumnPropNameInRow="TypeID" msprop:Generator_ColumnPropNameInTable="TypeIDColumn" msprop:Generator_UserColumnName="TypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" type="xs:int" />
               <xs:element name="Width" msprop:Generator_ColumnVarNameInTable="columnWidth" msprop:Generator_ColumnPropNameInRow="Width" msprop:Generator_ColumnPropNameInTable="WidthColumn" msprop:Generator_UserColumnName="Width" type="xs:int" minOccurs="0" />
               <xs:element name="Height" msprop:Generator_ColumnVarNameInTable="columnHeight" msprop:Generator_ColumnPropNameInRow="Height" msprop:Generator_ColumnPropNameInTable="HeightColumn" msprop:Generator_UserColumnName="Height" type="xs:int" minOccurs="0" />
               <xs:element name="Length" msprop:Generator_ColumnVarNameInTable="columnLength" msprop:Generator_ColumnPropNameInRow="Length" msprop:Generator_ColumnPropNameInTable="LengthColumn" msprop:Generator_UserColumnName="Length" type="xs:double" minOccurs="0" />
@@ -43,13 +36,5 @@
       <xs:selector xpath=".//mstns:Media" />
       <xs:field xpath="mstns:MediaID" />
     </xs:unique>
-    <xs:unique name="Type_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:Type" />
-      <xs:field xpath="mstns:MediaID" />
-    </xs:unique>
-    <xs:keyref name="FK_Media_Type" refer="Constraint1" msdata:ConstraintOnly="true">
-      <xs:selector xpath=".//mstns:Type" />
-      <xs:field xpath="mstns:MediaID" />
-    </xs:keyref>
   </xs:element>
 </xs:schema>

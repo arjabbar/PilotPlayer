@@ -22,16 +22,10 @@ namespace PilotPlayer
     /// </summary>
     public partial class UploadMedia : Window
     {
-        SqlConnection sc;
-        SqlCommand sqlCmd;
-        SqlDataAdapter sqlAdapter;
-        SqlDataReader sqlRdr;
+
 
         public UploadMedia()
         {
-            string dbPath = System.Windows.Forms.Application.StartupPath + "\\PPDB.sdf";
-            sc = new SqlConnection("Data Source=.\\SQLEXPRESS;AttachDbFilename=" + dbPath + ";Integrated Security=True;User Instance=True");
-
             InitializeComponent();
         }
 
