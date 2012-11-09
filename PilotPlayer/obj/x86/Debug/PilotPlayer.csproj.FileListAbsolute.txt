@@ -91,3 +91,4 @@ C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\PilotPlay
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
+C:\Documents and Settings\Administrator\My Documents\GitHub\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
