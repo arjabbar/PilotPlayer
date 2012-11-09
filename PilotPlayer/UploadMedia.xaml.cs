@@ -32,7 +32,7 @@ namespace PilotPlayer
         public UploadMedia()
         {
             timer.Interval = 5000;
-            string dbPath = System.Windows.Forms.Application.StartupPath + "\\PilotPlayerDB.sdf";
+            string dbPath = System.Windows.Forms.Application.StartupPath + "\\..\\..\\PilotPlayerDB.sdf";
             sc = new SqlCeConnection("Data Source=" + dbPath + ";Persist Security Info=False;");
             InitializeComponent();
             Reset();
