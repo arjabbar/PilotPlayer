@@ -1,0 +1,9 @@
+*.exe
+*.suo
+*.cache
+*.pdb
+*.baml
+*.xaml
+*.manifest
+obj
+bin
