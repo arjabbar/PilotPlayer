@@ -59,6 +59,7 @@ namespace PilotPlayer
                 SqlCeCommand sqlCmd = new SqlCeCommand(insertQuery, sc);
                 sqlRdr = sqlCmd.ExecuteReader();
                 sqlRdr.Close();
+                sc.Close();
                 return true;
             }
             catch (SqlException sqlEx)

@@ -14,6 +14,6 @@
         <Button Content="Start Slideshow" Height="23" HorizontalAlignment="Left" Margin="427,186,0,0" Name="btnStartSlideshow" VerticalAlignment="Top" Width="103" Click="btnStartSlideshow_Click" />
         <Button Content="Edit Slideshow" Height="23" HorizontalAlignment="Left" Margin="318,186,0,0" Name="btnEditSlideshow" VerticalAlignment="Top" Width="103" Click="btnEditSlideshow_Click" />
         <Image Height="39" HorizontalAlignment="Left" Margin="598,56,0,0" Name="check" Stretch="Fill" VerticalAlignment="Top" Width="39" Source="/PilotPlayer;component/bin/check.png" Visibility="Hidden" />
-        <Label Height="28" HorizontalAlignment="Left" Margin="31,186,0,0" Name="lblStatus" VerticalAlignment="Top" Width="277" />
+        <Label Height="53" HorizontalAlignment="Left" Margin="23,174,0,0" Name="lblStatus" VerticalAlignment="Top" Width="285" />
     </Grid>
 </Window>

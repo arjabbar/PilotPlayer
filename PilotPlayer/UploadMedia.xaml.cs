@@ -28,6 +28,7 @@ namespace PilotPlayer
         SqlCeDataAdapter sqlAdapter;
         SqlCeDataReader sqlRdr;
         Timer timer = new Timer();
+        string[] mediaURLs;
 
         public UploadMedia()
         {
@@ -109,9 +110,14 @@ namespace PilotPlayer
         {
             MainWindow mainApplication;
 
+            try
+            {
+                
+
             if (dtPickerEnd.SelectedDate >= dtPickerStart.SelectedDate 
                    || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
             {
+                //JOHN: Use this ---> getRandomElement(mediaURLs).ToString(); <---To get a random URI from the database
                 //then we can start the slideshow. 
                 mainApplication = new MainWindow();
                 mainApplication.Show();
@@ -119,6 +125,14 @@ namespace PilotPlayer
             else
             {
                 System.Windows.Forms.MessageBox.Show("Please enter a possible date range");
+            }
+
+            } catch (SqlCeException sqlEx) {
+                lblStatus.Foreground = Brushes.Red;
+                lblStatus.Opacity = 1;
+                timer.Tick += new EventHandler(eraseLblError);
+                lblStatus.Content += "Error starting slideshow. Maybe the database is screwed up.\n";
+                timer.Start();
             }
         }
 
@@ -133,6 +147,32 @@ namespace PilotPlayer
         {
             lblStatus.Content = "";
             timer.Stop();
+        }
+
+        public string[] grabURLs()
+        {
+            sc.Open();
+            sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
+            sqlRdr.Read();
+            int numFiles = (int)sqlRdr[0];
+            int count = 0;
+            string query = "SELECT url FROM Media;";
+            sqlCmd = new SqlCeCommand(query, sc);
+            sqlRdr = sqlCmd.ExecuteReader();
+            mediaURLs = new string[numFiles];
+            while (sqlRdr.Read())
+            {
+                mediaURLs[count] = sqlRdr["url"].ToString();
+                count++;
+            }
+            return mediaURLs;
+        }
+
+        public Object getRandomElement(Object[] array)
+        {
+            Random r = new Random();
+            int element = r.Next(array.Length);
+            return array[element];
         }
     }
 }
