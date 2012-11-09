@@ -9,6 +9,5 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("pilotplayerdb.sdf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("ppdb.sdf")]
 
 

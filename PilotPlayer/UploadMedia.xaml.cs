@@ -28,11 +28,12 @@ namespace PilotPlayer
         SqlCeDataAdapter sqlAdapter;
         SqlCeDataReader sqlRdr;
         Timer timer = new Timer();
+        string[] mediaURLs;
 
         public UploadMedia()
         {
             timer.Interval = 5000;
-            string dbPath = System.Windows.Forms.Application.StartupPath + "\\PilotPlayerDB.sdf";
+            string dbPath = System.Windows.Forms.Application.StartupPath + "\\..\\..\\PilotPlayerDB.sdf";
             sc = new SqlCeConnection("Data Source=" + dbPath + ";Persist Security Info=False;");
             InitializeComponent();
             Reset();
@@ -67,13 +68,12 @@ namespace PilotPlayer
         {
             try
             {
-                MediaFile mediaFile = new MediaFile(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
-                Console.WriteLine(dtPickerStart.SelectedDate.Value);
-                if (mediaFile.insertMediaFile(sc))
+                MediaObject mediaObject = new MediaObject(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
+                if (mediaObject.insertMediaFile(sc))
                 {
                     timer.Tick += new EventHandler(eraseLblError);
                     lblStatus.Foreground = Brushes.Green;
-                    lblStatus.Content = "Successfully uploaded media.";
+                    lblStatus.Content += "Successfully uploaded media.\n";
                     check.Visibility = System.Windows.Visibility.Visible;
                     timer.Start();
                 }
@@ -81,16 +81,24 @@ namespace PilotPlayer
                 {
                     timer.Tick += new EventHandler(eraseLblError);
                     lblStatus.Foreground = Brushes.Red;
-                    lblStatus.Content = "There was an error uploading the media.";
+                    lblStatus.Content += "There was an error uploading the media.\n";
                     timer.Start();
                 }
+            }
+            catch (UriFormatException ufe)
+            {
+                lblStatus.Foreground = Brushes.Red;
+                lblStatus.Opacity = 1;
+                timer.Tick += new EventHandler(eraseLblError);
+                lblStatus.Content += "This file path doesn't seem quite right.\n";
+                timer.Start();
             }
             catch (InvalidOperationException ioe)
             {
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
-                lblStatus.Content = ioe.Message.Contains("Nullable") ? "Please ensure that you've selected a file and dates." : ioe.Message;
+                lblStatus.Content += ioe.Message.Contains("Nullable") ? "Please ensure that you've selected a file and dates.\n" : ioe.Message + "\n";
                 timer.Start();
             }
 
@@ -102,9 +110,14 @@ namespace PilotPlayer
         {
             MainWindow mainApplication;
 
+            try
+            {
+                
+
             if (dtPickerEnd.SelectedDate >= dtPickerStart.SelectedDate 
                    || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
             {
+                //JOHN: Use this ---> getRandomElement(mediaURLs).ToString(); <---To get a random URI from the database
                 //then we can start the slideshow. 
                 mainApplication = new MainWindow();
                 mainApplication.Show();
@@ -113,6 +126,14 @@ namespace PilotPlayer
             {
                 System.Windows.Forms.MessageBox.Show("Please enter a possible date range");
             }
+
+            } catch (SqlCeException sqlEx) {
+                lblStatus.Foreground = Brushes.Red;
+                lblStatus.Opacity = 1;
+                timer.Tick += new EventHandler(eraseLblError);
+                lblStatus.Content += "Error starting slideshow. Maybe the database is screwed up.\n";
+                timer.Start();
+            }
         }
 
         //Connects to Edit SlideShow Window
@@ -120,13 +141,38 @@ namespace PilotPlayer
         {
             var editMedia = new EditSlideshow();
             editMedia.Show();
-
         }
 
         public void eraseLblError(object sender, EventArgs e)
         {
             lblStatus.Content = "";
             timer.Stop();
+        }
+
+        public string[] grabURLs()
+        {
+            sc.Open();
+            sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
+            sqlRdr.Read();
+            int numFiles = (int)sqlRdr[0];
+            int count = 0;
+            string query = "SELECT url FROM Media;";
+            sqlCmd = new SqlCeCommand(query, sc);
+            sqlRdr = sqlCmd.ExecuteReader();
+            mediaURLs = new string[numFiles];
+            while (sqlRdr.Read())
+            {
+                mediaURLs[count] = sqlRdr["url"].ToString();
+                count++;
+            }
+            return mediaURLs;
+        }
+
+        public Object getRandomElement(Object[] array)
+        {
+            Random r = new Random();
+            int element = r.Next(array.Length);
+            return array[element];
         }
     }
 }

@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Edit Slideshow" Height="233" Width="525" xmlns:my="clr-namespace:PilotPlayer" Loaded="Window_Loaded" >
     <Window.Resources>
-        <my:PPDBDataSet x:Key="pPDBDataSet" />
         <CollectionViewSource x:Key="mediaViewSource" Source="{Binding Path=Media, Source={StaticResource pPDBDataSet}}" />
     </Window.Resources>
     <Grid Height="202" DataContext="{StaticResource mediaViewSource}" Width="507">
