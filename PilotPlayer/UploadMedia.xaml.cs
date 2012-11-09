@@ -68,8 +68,8 @@ namespace PilotPlayer
         {
             try
             {
-                MediaFile mediaFile = new MediaFile(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
-                if (mediaFile.insertMediaFile(sc))
+                MediaObject mediaObject = new MediaObject(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
+                if (mediaObject.insertMediaFile(sc))
                 {
                     timer.Tick += new EventHandler(eraseLblError);
                     lblStatus.Foreground = Brushes.Green;
