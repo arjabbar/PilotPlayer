@@ -20,9 +20,12 @@ namespace PilotPlayer
     /// </summary>
     public partial class EditSlideshow : Window
     {
+        DataInterface dbInterface;
+
         public EditSlideshow()
         {
             InitializeComponent();
+            dbInterface = new DataInterface();   
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -33,7 +36,8 @@ namespace PilotPlayer
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            //Connect to DataInterface for removeMedia
+            dbInterface.openConnection();
+            //TODO: Select the object from the GridView/ListView to delete and run dbInterface.removeMedia
         }
 
     }

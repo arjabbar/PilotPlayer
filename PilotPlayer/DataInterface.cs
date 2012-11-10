@@ -155,5 +155,26 @@ namespace PilotPlayer
             }
             return mediaURLs;
         }
+
+        //When user clicks Start Slideshow, the dates selected on the Upload window need to match the dates in the databases
+        //Error checking for date ranges was done in UploadMedia.btnStartSlideshow
+        internal void updateDateRange(DatePicker dtPickerStart, DatePicker dtPickerEnd)
+        {
+            SqlCeCommand sqlCmd;
+            SqlCeDataReader sqlRdr;
+
+            var updateDates = "UPDATE Media SET date_start = '" + dtPickerStart + "', date_end = '" + dtPickerEnd + "'";
+            
+            try
+            {
+                sqlCmd = new SqlCeCommand(updateDates, sc);
+                sqlRdr = sqlCmd.ExecuteReader();
+                sqlRdr.Close();               
+            }
+            catch (SqlCeException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Errors.ToString());
+            }
+        }
     }
 }
