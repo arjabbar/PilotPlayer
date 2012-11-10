@@ -22,21 +22,18 @@ namespace PilotPlayer
     /// </summary>
     public partial class UploadMedia : Window
     {
-
-        SqlCeConnection sc;
-        SqlCeCommand sqlCmd;
-        SqlCeDataAdapter sqlAdapter;
-        SqlCeDataReader sqlRdr;
         Timer timer = new Timer();
         string[] mediaURLs;
+
+        DataInterface dbInterface;
 
         public UploadMedia()
         {
             timer.Interval = 5000;
-            string dbPath = System.Windows.Forms.Application.StartupPath + "\\..\\..\\PilotPlayerDB.sdf";
-            sc = new SqlCeConnection("Data Source=" + dbPath + ";Persist Security Info=False;");
             InitializeComponent();
             Reset();
+
+            dbInterface = new DataInterface();            
         }
 
         //ensure the textbox is empty when the program starts and date is set to today
@@ -68,8 +65,11 @@ namespace PilotPlayer
         {
             try
             {
+                dbInterface.openConnection();
+
                 MediaObject mediaObject = new MediaObject(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
-                if (mediaObject.insertMediaFile(sc))
+
+                if (dbInterface.insertMedia(mediaObject))
                 {
                     timer.Tick += new EventHandler(eraseLblError);
                     lblStatus.Foreground = Brushes.Green;
@@ -102,6 +102,7 @@ namespace PilotPlayer
                 timer.Start();
             }
 
+            dbInterface.closeConnection();
         }
 
 
@@ -112,22 +113,21 @@ namespace PilotPlayer
 
             try
             {
-                
-
-            if (dtPickerEnd.SelectedDate >= dtPickerStart.SelectedDate 
+                if (dtPickerEnd.SelectedDate >= dtPickerStart.SelectedDate 
                    || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
+                {
+                    //JOHN: Use this ---> getRandomElement(mediaURLs).ToString(); <---To get a random URI from the database
+                    //then we can start the slideshow. 
+                    mainApplication = new MainWindow();
+                    mainApplication.Show();
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Please enter a possible date range");
+                }
+            } 
+            catch (SqlCeException sqlEx) 
             {
-                //JOHN: Use this ---> getRandomElement(mediaURLs).ToString(); <---To get a random URI from the database
-                //then we can start the slideshow. 
-                mainApplication = new MainWindow();
-                mainApplication.Show();
-            }
-            else
-            {
-                System.Windows.Forms.MessageBox.Show("Please enter a possible date range");
-            }
-
-            } catch (SqlCeException sqlEx) {
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
@@ -147,25 +147,6 @@ namespace PilotPlayer
         {
             lblStatus.Content = "";
             timer.Stop();
-        }
-
-        public string[] grabURLs()
-        {
-            sc.Open();
-            sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
-            sqlRdr.Read();
-            int numFiles = (int)sqlRdr[0];
-            int count = 0;
-            string query = "SELECT url FROM Media;";
-            sqlCmd = new SqlCeCommand(query, sc);
-            sqlRdr = sqlCmd.ExecuteReader();
-            mediaURLs = new string[numFiles];
-            while (sqlRdr.Read())
-            {
-                mediaURLs[count] = sqlRdr["url"].ToString();
-                count++;
-            }
-            return mediaURLs;
         }
 
         public Object getRandomElement(Object[] array)

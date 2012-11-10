@@ -43,7 +43,6 @@ D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
 D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
 D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
 D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
-D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PPDB.sdf
 D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
 D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_Content.g.cs
 C:\Documents and Settings\Administrator\My Documents\GitHub\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
@@ -120,3 +119,7 @@ C:\Users\Abdur\Documents\GitHub\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlaye
 C:\Users\Abdur\Documents\GitHub\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
 C:\Users\Abdur\Documents\GitHub\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Abdur\Documents\GitHub\PilotPlayer\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Repos\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.g.cs
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.lref
+D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.baml

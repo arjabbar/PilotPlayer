@@ -16,9 +16,8 @@ namespace PilotPlayer
         private double currentVolume;
         private MediaElement videoElementToControl;
         private Image imageElementToControl;
-        private string insertQuery;
-        private string url, fileName, fileExt, fileType;
-        private int typeID, width, height, length;
+ 
+        private string url;
         private DateTime dateStart, dateEnd;
 
         public MediaObject(MediaElement videoElementToControl)
@@ -37,24 +36,25 @@ namespace PilotPlayer
             {
                 throw new System.InvalidOperationException("Please enter a start and end date.");
             }
-            
-                this.url = path;
-                this.fileName = path.Split('\\').Last();
-                this.fileExt = fileName.Split('.').Last();
-                this.fileName = fileName.Split('.').First();
-                this.typeID = MediaFileUtilities.getFileTypeID(this.fileExt);
-                this.fileType = MediaFileUtilities.getFileType(this.fileExt);
-                MediaElement thisMediaFile = new MediaElement();
-                thisMediaFile.Source = new Uri(path);
-                this.width = (int)thisMediaFile.Width;
-                this.height = (int)thisMediaFile.Height;
-                this.dateStart = startDate;
-                this.dateEnd = endDate;
-            
-            this.insertQuery = "INSERT INTO Media([url],[filename],[file_extension],[type_id],[width],[height],[date_start],[date_end])"
-                    + "VALUES ('" + url + "','" + fileName + "','" + fileExt + "','" + typeID + "','" + width + "','"
-                    + height + "','" + dateStart + "','" + dateEnd + "');";
-            
+
+            this.url = path;
+            this.dateStart = startDate;
+            this.dateEnd = endDate;
+        }
+
+        public String getUrl()
+        {
+            return url;
+        }
+
+        public DateTime getStartDate()
+        {
+            return dateStart;
+        }
+
+        public DateTime getEndDate()
+        {
+            return dateEnd;
         }
 
         public MediaObject(Image imageElementToControl)
@@ -107,29 +107,6 @@ namespace PilotPlayer
             {
                 isPaused = false;
                 videoElementToControl.Play();
-            }
-        }
-
-        public bool insertMediaFile(SqlCeConnection sc)
-        {
-            if (String.IsNullOrWhiteSpace(insertQuery))
-            {
-                return false;
-            }
-            Console.WriteLine(sc.ConnectionString);
-            sc.Open();
-            SqlCeDataReader sqlRdr;
-            try
-            {
-                SqlCeCommand sqlCmd = new SqlCeCommand(insertQuery, sc);
-                sqlRdr = sqlCmd.ExecuteReader();
-                sqlRdr.Close();
-                sc.Close();
-                return true;
-            }
-            catch (SqlCeException sqlEx)
-            {
-                return false;
             }
         }
     }

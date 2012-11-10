@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Data.SqlServerCe;
+using System.Windows.Controls;
 
 /*
  * This Class will act as the interface to our database. 
@@ -14,16 +16,19 @@ namespace PilotPlayer
 {
     class DataInterface
     {
-        SqlConnection sc;
+        SqlCeConnection sc;
 
         String appPath;
 
         public DataInterface()
         {
             appPath = Application.StartupPath;
-            sc = new SqlConnection("Data Source=.\\SQLEXPRESS;AttachDbFilename=" + appPath + "\\PPDB.sdf" + ";Integrated Security=True;User Instance=True");
+            sc = new SqlCeConnection("Data Source=" + appPath + "\\PilotPlayerDB.sdf" + ";Persist Security Info=False;");
+        }
 
-            //Should the Database connection be made here automatically, or explicity by the method below?
+        public SqlCeConnection getSqlConnection()
+        {
+            return sc;
         }
 
         //Opens connection to database. Returns true if connection is made successfully, false otherwise.
@@ -57,31 +62,98 @@ namespace PilotPlayer
         }
 
         //Inserts an entry into the media table and returns true if insertion is successful, and false otherwise.
-        public Boolean insertMedia(String absPath, String startDate, String endDate, Int32 type, Int32 width, Int32 Height, float Length)
+        public Boolean insertMedia(MediaObject mObject)
         {
-            //TODO: Break up Absolute Path into FilePath, FileName, and FileExt.
-            //      Insert Data into database.
+            SqlCeCommand sqlCmd;
+            SqlCeDataReader sqlRdr;
             
-            return true;
+            string insertQuery;
+            string url, fileName, fileExt, fileType;
+            int typeID, width, height;
+            DateTime dateStart, dateEnd;
+
+            url = mObject.getUrl();
+            fileName = url.Split('\\').Last();
+            fileExt = fileName.Split('.').Last();
+            fileName = fileName.Split('.').First();
+            typeID = MediaFileUtilities.getFileTypeID(fileExt);
+            fileType = MediaFileUtilities.getFileType(fileExt);
+            MediaElement thisMediaFile = new MediaElement();
+            thisMediaFile.Source = new Uri(url);
+            width = (int)thisMediaFile.Width;
+            height = (int)thisMediaFile.Height;
+            dateStart = mObject.getStartDate();
+            dateEnd = mObject.getEndDate();
+
+            insertQuery = "INSERT INTO Media([url],[filename],[file_extension],[type_id],[width],[height],[date_start],[date_end])"
+                    + "VALUES ('" + url + "','" + fileName + "','" + fileExt + "','" + typeID + "','" + width + "','"
+                    + height + "','" + dateStart + "','" + dateEnd + "');";
+            
+            try
+            {
+                sqlCmd = new SqlCeCommand(insertQuery, sc);
+                sqlRdr = sqlCmd.ExecuteReader();
+                sqlRdr.Close();
+                return true;
+            }
+            catch (SqlCeException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Errors.ToString());
+                return false;
+            }
         }
 
-        //Executes a query passed into the method and returns the result.
-        //public SqlDataReader queryDB(/*TODO: Decide on how to pass parameters to this method*/)
-        //{
-        //    SqlCommand sqlCmd = new SqlCommand();
-        //    SqlDataReader results = new SqlDataReader();
-
-        //   // TODO: Execute Query
-
-        //    return results;
-        //}
-
         //Removes an entry from the media table and returns true if deletion is successful, false otherwise.
-        public Boolean removeMedia(/*TODO: Decide on how to pass parameters to this method*/)
+        public Boolean removeMedia(MediaObject mObject)
         {
-            
-            
-            return true;
+            SqlCeCommand sqlCmd;
+            SqlCeDataReader sqlRdr;
+
+            string removeQuery;
+            string url, fileName, fileExt;
+
+            url = mObject.getUrl();
+            fileName = url.Split('\\').Last();
+            fileExt = fileName.Split('.').Last();
+            fileName = fileName.Split('.').First();
+
+            removeQuery = "DELETE FROM Media WHERE url = '" + url + "' AND filename = '" + fileName + "' AND file_extension = '" + fileExt + "'";
+
+            try
+            {
+                sqlCmd = new SqlCeCommand(removeQuery, sc);
+                sqlRdr = sqlCmd.ExecuteReader();
+                sqlRdr.Close();
+                return true;
+            }
+            catch (SqlCeException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Errors.ToString());
+                return false;
+            }
+        }
+
+        public string[] grabURLs()
+        {
+            SqlCeCommand sqlCmd;
+            SqlCeDataReader sqlRdr;
+
+            string[] mediaURLs;
+
+            sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
+            sqlRdr.Read();
+            int numFiles = (int)sqlRdr[0];
+            int count = 0;
+            string query = "SELECT url FROM Media;";
+            sqlCmd = new SqlCeCommand(query, sc);
+            sqlRdr = sqlCmd.ExecuteReader();
+            mediaURLs = new string[numFiles];
+            while (sqlRdr.Read())
+            {
+                mediaURLs[count] = sqlRdr["url"].ToString();
+                count++;
+            }
+            return mediaURLs;
         }
     }
 }

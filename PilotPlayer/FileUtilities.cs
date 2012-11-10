@@ -35,13 +35,13 @@ namespace PilotPlayer
 
         public static int getFileTypeID(string extension)
         {
-            if (isInArray(extension, imageTypes))
-            {
-                return 2;
-            }
-            else if (isInArray(extension, videoTypes))
+            if (isInArray(extension, videoTypes))
             {
                 return 1;
+            }
+            else if (isInArray(extension, imageTypes))
+            {
+                return 2;
             }
             else if (isInArray(extension, audioTypes))
             {
