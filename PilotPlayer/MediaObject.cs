@@ -14,16 +14,14 @@ namespace PilotPlayer
     {
         private bool isPaused;
         private double currentVolume;
-        private MediaElement videoElementToControl;
-        private Image imageElementToControl;
+        private MediaElement mElement;
  
         private string url;
         private DateTime dateStart, dateEnd;
 
-        public MediaObject(MediaElement videoElementToControl)
+        public MediaObject(MediaElement mElement)
         {
-            this.videoElementToControl = videoElementToControl;
-            imageElementToControl = null;
+            this.mElement = mElement;
         }
 
         public MediaObject(string path, DateTime startDate, DateTime endDate)
@@ -57,21 +55,15 @@ namespace PilotPlayer
             return dateEnd;
         }
 
-        public MediaObject(Image imageElementToControl)
-        {
-            this.imageElementToControl = imageElementToControl;
-            videoElementToControl = null;
-        }
-
         public void muteAudio()
         {
-            currentVolume = videoElementToControl.Volume;
-            videoElementToControl.Volume = 0;
+            currentVolume = mElement.Volume;
+            mElement.Volume = 0;
         }
 
         public void unMuteAudio()
         {
-            videoElementToControl.Volume = currentVolume;
+            mElement.Volume = currentVolume;
         }
 
         public void displayMedia()
@@ -88,26 +80,27 @@ namespace PilotPlayer
 
         public void stopVideoMedia()
         {
-            videoElementToControl.Stop();
+            mElement.Stop();
         }
 
         public void playVideoMedia()
         {
-            videoElementToControl.Play();
+            mElement.Play();
         }
-        
+
         public void pauseVideoMedia()
         {
-            if (videoElementToControl.CanPause && !isPaused)
+            if (mElement.CanPause && !isPaused)
             {
-                videoElementToControl.Pause();
+                mElement.Pause();
                 isPaused = true;
             }
             else
             {
                 isPaused = false;
-                videoElementToControl.Play();
+                mElement.Play();
             }
         }
+
     }
 }
