@@ -117,11 +117,11 @@ namespace PilotPlayer
                    || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
                 {
                     dbInterface.openConnection();
-                    //JOHN: Use this ---> getRandomElement(mediaURLs).ToString(); <---To get a random URI from the database
-                    //then we can start the slideshow. 
+
                     dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
-                    mainApplication = new MainWindow();
+                    mainApplication = new MainWindow(dtPickerStart, dtPickerEnd);
                     mainApplication.Show();
+                    mainApplication.StartSlideshow();
                  
                     dbInterface.closeConnection();
                 }

@@ -19,27 +19,42 @@ namespace PilotPlayer
     public partial class MainWindow : Window
     {
         private MediaObject mObject;
+        private String[] mediaList;
+        private DatePicker dtPickerStart;
+        private DatePicker dtPickerEnd;
 
-        public MainWindow()
+        public MainWindow(DatePicker dtPickerStart, DatePicker dtPickerEnd)
         {
+            this.dtPickerStart = dtPickerStart;
+            this.dtPickerEnd = dtPickerEnd;
+
             InitializeComponent();
             WindowState = WindowState.Normal;
             WindowStyle = WindowStyle.None;
             Topmost = true;
 
             //WindowState = WindowState.Maximized;
-            primaryMediaElement.LoadedBehavior = MediaState.Manual;
-            primaryMediaElement.Clock = null;
-            System.Uri mediaURI = new System.Uri("e:/video.wmv");
-        
-            primaryMediaElement.Source = mediaURI;
-            mObject = new MediaObject(primaryMediaElement);
-            mObject.playVideoMedia();
+            mElement.LoadedBehavior = MediaState.Manual;
+            mElement.Clock = null;
         }
 
-        private void Grid_KeyDown(object sender, KeyEventArgs e)
+        public void StartSlideshow()
         {
-            
+            DataInterface dbInterface = new DataInterface();
+            dbInterface.openConnection();
+            dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
+
+            mediaList = dbInterface.grabURLs();
+
+            for (int i = 0; i < mediaList.Length; i++)
+            {
+                System.Uri mediaURI = new System.Uri(mediaList[i]);
+
+                mElement.Source = mediaURI;
+                mObject = new MediaObject(mElement);
+                mObject.playVideoMedia();
+
+            }        
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
@@ -48,15 +63,6 @@ namespace PilotPlayer
             {
                 this.Close();
             }
-            if (e.Key == Key.P)
-            {
-                mObject.displayMedia();
-            }
-            if (e.Key == Key.Space)
-            {
-                mObject.pauseVideoMedia();
-            }
-
         }
     }
 }

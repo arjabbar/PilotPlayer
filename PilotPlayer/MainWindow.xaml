@@ -11,6 +11,6 @@
                 <GradientStop Color="#FF101A55" Offset="1" />
             </LinearGradientBrush>
         </Grid.Background>
-        <MediaElement Height="311" HorizontalAlignment="Left" Name="primaryMediaElement" VerticalAlignment="Top" Width="503" />
+        <MediaElement Height="311" HorizontalAlignment="Left" Name="mElement" VerticalAlignment="Top" Width="503" Stretch="Fill"/>
     </Grid>
 </Window>
