@@ -122,3 +122,22 @@ D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.g.cs
 D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.lref
 D:\Repos\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.baml
 C:\Documents and Settings\Administrator\My Documents\GitHub\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.pdb
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.baml
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.baml
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.g.cs
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.g.cs
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\App.g.cs
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_Content.g.cs
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.cache
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.lref
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.baml
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.csproj.GenerateResource.Cache
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb

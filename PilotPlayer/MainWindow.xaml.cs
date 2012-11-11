@@ -38,7 +38,6 @@ namespace PilotPlayer
             WindowState = WindowState.Maximized;
             mElement.LoadedBehavior = MediaState.Manual;
             mElement.Clock = null;
-            readyForNext = true;
             currentSelection = 0;
         }
 
