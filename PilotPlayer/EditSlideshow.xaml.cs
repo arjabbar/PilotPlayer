@@ -76,8 +76,8 @@ namespace PilotPlayer
             grid.RowDefinitions.Clear();
             for (int i = startRow; (i < startRow + 5) && (i < tableData.Length); i++)
             {
-                cbs[i] = new CheckBox();
-                cbs[i].Checked += new RoutedEventHandler(cb_checked);
+                cbs[row] = new CheckBox();
+                cbs[row].Checked += new RoutedEventHandler(cb_checked);
                 grid.RowDefinitions.Add(new RowDefinition());
                 TextBox filename = new TextBox();
                 filename.Text = tableData[i]["filename"].ToString();
@@ -87,7 +87,7 @@ namespace PilotPlayer
                 dateStart.SelectedDate = DateTime.Parse(tableData[i]["date_start"].ToString());
                 DatePicker dateEnd = new DatePicker();
                 dateEnd.SelectedDate = DateTime.Parse(tableData[i]["date_end"].ToString());
-                UIElement[] rowItems = { cbs[i], filename, filetype, dateStart, dateEnd };
+                UIElement[] rowItems = { cbs[row], filename, filetype, dateStart, dateEnd };
 
                 addRowToGrid(rowItems, row, grid);
                 row++;

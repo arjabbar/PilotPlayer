@@ -141,3 +141,23 @@ C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Prop
 C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.csproj.GenerateResource.Cache
 C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
 C:\Users\techmage\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.csprojResolveAssemblyReference.cache
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.baml
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.baml
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.g.cs
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\MainWindow.g.cs
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\App.g.cs
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_Content.g.cs
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.cache
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.lref
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\EditSlideshow.baml
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayerDB.sdf
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.pdb
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
+C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.csproj.GenerateResource.Cache
