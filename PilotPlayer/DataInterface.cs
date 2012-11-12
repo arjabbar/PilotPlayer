@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Windows.Controls;
+using System.Collections;
 
 /*
  * This Class will act as the interface to our database. 
@@ -17,13 +18,12 @@ namespace PilotPlayer
     class DataInterface
     {
         SqlCeConnection sc;
-
         String appPath;
 
         public DataInterface()
         {
             appPath = Application.StartupPath;
-            sc = new SqlCeConnection("Data Source=" + appPath + "\\PilotPlayerDB.sdf" + ";Persist Security Info=False;");
+            sc = new SqlCeConnection("Data Source=" + appPath + "\\..\\..\\PilotPlayerDB.sdf" + ";Persist Security Info=False;");
         }
 
         public SqlCeConnection getSqlConnection()
@@ -155,6 +155,41 @@ namespace PilotPlayer
             }
             return mediaURLs;
         }
+
+        public Hashtable[] getMediaTable()
+        {
+            SqlCeCommand sqlCmd;
+            SqlCeDataReader sqlRdr;
+
+            Hashtable[] table;
+            Hashtable row;
+
+            sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
+            sqlRdr.Read();
+            int numFiles = (int)sqlRdr[0];
+            table = new Hashtable[numFiles];
+            int rowCount = 0;
+            string query = "SELECT * FROM Media;";
+            sqlCmd = new SqlCeCommand(query, sc);
+            sqlRdr = sqlCmd.ExecuteReader();
+            while (sqlRdr.Read())
+            {
+                table[rowCount] = new Hashtable();
+                table[rowCount]["media_id"] = (int)sqlRdr["media_id"];
+                table[rowCount]["url"] = (string)sqlRdr["url"];
+                table[rowCount]["filename"] = (string)sqlRdr["filename"];
+                table[rowCount]["file_extension"] = (string)sqlRdr["file_extension"];
+                table[rowCount]["type_id"] = (int)sqlRdr["type_id"];
+                table[rowCount]["width"] = (int)sqlRdr["width"];
+                table[rowCount]["height"] = (int)sqlRdr["height"];
+                table[rowCount]["date_start"] = DateTime.Parse(sqlRdr["date_start"].ToString());
+                table[rowCount]["date_end"] = DateTime.Parse(sqlRdr["date_end"].ToString());
+                rowCount++;
+            }
+            Console.WriteLine(table.Length);
+            return table;
+        }
+
 
         //When user clicks Start Slideshow, the dates selected on the Upload window need to match the dates in the databases
         //Error checking for date ranges was done in UploadMedia.btnStartSlideshow

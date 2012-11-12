@@ -179,6 +179,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="bin\page_back.png" />
+    <Resource Include="bin\page_forward.png" />
     <Content Include="PilotPlayerDB.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
