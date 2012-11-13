@@ -18,12 +18,17 @@ namespace PilotPlayer
     class DataInterface
     {
         SqlCeConnection sc;
+        SqlCeCommand sqlCmd;
+        SqlCeDataReader sqlRdr;
         String appPath;
+        public enum Order { ASC, DESC};
 
         public DataInterface()
         {
             appPath = Application.StartupPath;
             sc = new SqlCeConnection("Data Source=" + appPath + "\\..\\..\\PilotPlayerDB.sdf" + ";Persist Security Info=False;");
+            openConnection();
+            removeDups();
         }
 
         public SqlCeConnection getSqlConnection()
@@ -64,8 +69,6 @@ namespace PilotPlayer
         //Inserts an entry into the media table and returns true if insertion is successful, and false otherwise.
         public Boolean insertMedia(MediaObject mObject)
         {
-            SqlCeCommand sqlCmd;
-            SqlCeDataReader sqlRdr;
             
             string insertQuery;
             string url, fileName, fileExt, fileType;
@@ -106,8 +109,6 @@ namespace PilotPlayer
         //Removes an entry from the media table and returns true if deletion is successful, false otherwise.
         public Boolean removeMedia(MediaObject mObject)
         {
-            SqlCeCommand sqlCmd;
-            SqlCeDataReader sqlRdr;
 
             string removeQuery;
             string url, fileName, fileExt;
@@ -133,10 +134,29 @@ namespace PilotPlayer
             }
         }
 
+        public Boolean removeFirstOccurance(string url)
+        {
+
+            string removeQuery;
+
+            removeQuery = "DELETE FROM Media WHERE media_id IN (SELECT TOP(1) media_id FROM Media WHERE url = '" + url + "' ORDER BY date_end ASC)";
+
+            try
+            {
+                sqlCmd = new SqlCeCommand(removeQuery, sc);
+                sqlRdr = sqlCmd.ExecuteReader();
+                sqlRdr.Close();
+                return true;
+            }
+            catch (SqlCeException sqlEx)
+            {
+                MessageBox.Show(sqlEx.Errors.ToString());
+                return false;
+            }
+        }
+
         public string[] grabURLs()
         {
-            SqlCeCommand sqlCmd;
-            SqlCeDataReader sqlRdr;
 
             string[] mediaURLs;
 
@@ -158,11 +178,8 @@ namespace PilotPlayer
 
         public Hashtable[] getMediaTable()
         {
-            SqlCeCommand sqlCmd;
-            SqlCeDataReader sqlRdr;
-
+            
             Hashtable[] table;
-            Hashtable row;
 
             sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
             sqlRdr.Read();
@@ -190,13 +207,42 @@ namespace PilotPlayer
             return table;
         }
 
+        public Hashtable[] getMediaTable(string orderBy, Order order)
+        {
+
+            Hashtable[] table;
+
+            sqlRdr = new SqlCeCommand("SELECT COUNT(*) FROM Media", sc).ExecuteReader();
+            sqlRdr.Read();
+            int numFiles = (int)sqlRdr[0];
+            table = new Hashtable[numFiles];
+            int rowCount = 0;
+            string query = "SELECT * FROM Media ORDER BY " + orderBy + " " + Enum.GetName(typeof(Order), order);
+            sqlCmd = new SqlCeCommand(query, sc);
+            sqlRdr = sqlCmd.ExecuteReader();
+            while (sqlRdr.Read())
+            {
+                table[rowCount] = new Hashtable();
+                table[rowCount]["media_id"] = (int)sqlRdr["media_id"];
+                table[rowCount]["url"] = (string)sqlRdr["url"];
+                table[rowCount]["filename"] = (string)sqlRdr["filename"];
+                table[rowCount]["file_extension"] = (string)sqlRdr["file_extension"];
+                table[rowCount]["type_id"] = (int)sqlRdr["type_id"];
+                table[rowCount]["width"] = (int)sqlRdr["width"];
+                table[rowCount]["height"] = (int)sqlRdr["height"];
+                table[rowCount]["date_start"] = DateTime.Parse(sqlRdr["date_start"].ToString());
+                table[rowCount]["date_end"] = DateTime.Parse(sqlRdr["date_end"].ToString());
+                rowCount++;
+            }
+            Console.WriteLine(table.Length);
+            return table;
+        }
+
 
         //When user clicks Start Slideshow, the dates selected on the Upload window need to match the dates in the databases
         //Error checking for date ranges was done in UploadMedia.btnStartSlideshow
         internal void updateDateRange(DatePicker dtPickerStart, DatePicker dtPickerEnd)
         {
-            SqlCeCommand sqlCmd;
-            SqlCeDataReader sqlRdr;
 
             var updateDates = "UPDATE Media SET date_start = '" + dtPickerStart + "', date_end = '" + dtPickerEnd + "'";
             
@@ -210,6 +256,61 @@ namespace PilotPlayer
             {
                 MessageBox.Show(sqlEx.Errors.ToString());
             }
+        }
+
+        public int update(string column, string newValue, params string[] conditions)
+        {
+
+            string query = "UPDATE Media SET " + column + " = " + newValue + " WHERE (";
+            foreach (string cond in conditions)
+            {
+                query += (cond.Equals(conditions.Last<string>())) ? cond + ") " : cond + ") AND (";
+            }
+
+            sqlCmd = new SqlCeCommand(query, sc);
+            return sqlCmd.ExecuteNonQuery();
+        }
+
+        public void removeDups()
+        {
+            Hashtable[] table = getMediaTable("date_end", Order.DESC);
+            for (int rowA = 0; rowA < table.Length; rowA++)
+            {
+                for (int rowB = 0; rowB < table.Length; rowB++)
+                {
+                    if (rowA == rowB)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        if (table[rowA]["url"].ToString()==table[rowB]["url"].ToString())
+                        {
+                            sqlRdr = executeQuery("SELECT COUNT(*) FROM Media WHERE url = '" + table[rowA]["url"].ToString() + "'");
+                            sqlRdr.Read();
+                            int numDups = (int)sqlRdr[0];
+                            while (numDups > 1)
+                            {
+                                Console.WriteLine("Deleting dups.");
+                                removeFirstOccurance(table[rowA]["url"].ToString());
+                                numDups--;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public SqlCeDataReader executeQuery(string query)
+        {
+            sqlCmd = new SqlCeCommand(query, sc);
+            return sqlCmd.ExecuteReader();
+        }
+
+        public int executeNonQuery(string query)
+        {
+            sqlCmd = new SqlCeCommand(query, sc);
+            return sqlCmd.ExecuteNonQuery();
         }
     }
 }
