@@ -21,7 +21,7 @@ namespace PilotPlayer
     public partial class EditSlideshow : Window
     {
         DataInterface dbInterface;
-        int maxRow = 0, startRow = 0;
+        private int startRow = 0;
         Hashtable[] tableData;
         CheckBox[] cbs = new CheckBox[5];
         public EditSlideshow()
@@ -84,9 +84,19 @@ namespace PilotPlayer
                 TextBox filetype = new TextBox();
                 filetype.Text = MediaFileUtilities.getFileType(tableData[i]["file_extension"].ToString());
                 DatePicker dateStart = new DatePicker();
-                dateStart.SelectedDate = DateTime.Parse(tableData[i]["date_start"].ToString());
                 DatePicker dateEnd = new DatePicker();
+                object[] tags = new object[2];
+                dateStart.SelectedDate = DateTime.Parse(tableData[i]["date_start"].ToString());
                 dateEnd.SelectedDate = DateTime.Parse(tableData[i]["date_end"].ToString());
+                tags[0] = tableData[i]["url"].ToString();
+                tags[1] = dateEnd;
+                dateStart.Tag = tags;
+                tags[0] = tableData[i]["url"].ToString();
+                tags[1] = dateEnd;
+                dateEnd.Tag = tags;
+                dateStart.SelectedDateChanged += new EventHandler<SelectionChangedEventArgs>(dateStart_SourceUpdated);
+                dateEnd.SelectedDateChanged += new EventHandler<SelectionChangedEventArgs>(dateEnd_SourceUpdated);
+                dateEnd.DisplayDateStart = dateStart.SelectedDate;
                 UIElement[] rowItems = { cbs[row], filename, filetype, dateStart, dateEnd };
 
                 addRowToGrid(rowItems, row, grid);
@@ -136,6 +146,33 @@ namespace PilotPlayer
         private void cb_checked(object sender, EventArgs e)
         {
             
+        }
+
+        private void dateStart_SourceUpdated(object sender, EventArgs e)
+        {
+            DatePicker dp = sender as DatePicker;
+            object[] tags = dp.Tag as object[];
+            string url = tags[0] as string;
+            DatePicker endDatePicker = tags[1] as DatePicker;
+
+            dbInterface.update("date_start", dp.SelectedDate.ToString(), " url = '" + url + "'");
+            endDatePicker.DisplayDateStart = dp.SelectedDate;
+            if (dp.SelectedDate > endDatePicker.SelectedDate)
+            {
+                endDatePicker.SelectedDate = dp.SelectedDate;
+            }
+            Console.WriteLine("Update " + dp.Tag.ToString() + ", set date_start=" + dp.SelectedDate.ToString());
+        }
+
+        private void dateEnd_SourceUpdated(object sender, EventArgs e)
+        {
+            DatePicker dp = sender as DatePicker;
+            object[] tags = dp.Tag as object[];
+            string url = tags[0] as string;
+            DatePicker startDatePicker = tags[1] as DatePicker;
+
+            dbInterface.update("date_end", dp.SelectedDate.ToString(), " url = '" + url + "'");
+            Console.WriteLine("Update " + dp.Tag.ToString() + ", set date_end=" + dp.SelectedDate.ToString());
         }
     }
 }

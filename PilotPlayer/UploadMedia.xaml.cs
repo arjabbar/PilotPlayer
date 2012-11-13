@@ -118,7 +118,7 @@ namespace PilotPlayer
                 {
                     dbInterface.openConnection();
 
-                    dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
+                    //dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
                     mainApplication = new MainWindow(dtPickerStart, dtPickerEnd);
                     mainApplication.Show();
                     mainApplication.StartSlideshow();

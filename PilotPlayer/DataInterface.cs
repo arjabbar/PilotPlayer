@@ -261,7 +261,7 @@ namespace PilotPlayer
         public int update(string column, string newValue, params string[] conditions)
         {
 
-            string query = "UPDATE Media SET " + column + " = " + newValue + " WHERE (";
+            string query = "UPDATE Media SET " + column + " = '" + newValue + "' WHERE (";
             foreach (string cond in conditions)
             {
                 query += (cond.Equals(conditions.Last<string>())) ? cond + ") " : cond + ") AND (";

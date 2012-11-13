@@ -68,7 +68,6 @@ C:\Documents and Settings\Administrator\My Documents\GitHub\PilotPlayer\PilotPla
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\bin\Debug\PilotPlayer.exe.config
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
-C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\bin\Debug\PPDB.sdf
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\bin\Debug\PilotPlayer.exe
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\bin\Debug\PilotPlayer.pdb
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\ResolveAssemblyReference.cache
@@ -79,7 +78,6 @@ C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\MainWindo
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\UploadMedia.g.cs
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\App.g.cs
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\PilotPlayer_Content.g.cs
-C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.cache
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\PilotPlayer_MarkupCompile.lref
 C:\Users\Abdur\Documents\GitHub\PilotPlayer2\PilotPlayer\obj\x86\Debug\EditSlideshow.baml
