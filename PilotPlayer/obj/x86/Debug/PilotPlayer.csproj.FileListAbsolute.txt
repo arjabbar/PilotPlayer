@@ -159,3 +159,6 @@ C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\bin\De
 C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.pdb
 C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
 C:\Users\IT\Documents\Visual Studio 2012\Projects\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.csproj.GenerateResource.Cache
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\PilotPlayer\bin\Debug\PilotPlayer.exe.config
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.exe
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\PilotPlayer\obj\x86\Debug\PilotPlayer.pdb
