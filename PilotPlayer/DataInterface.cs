@@ -29,6 +29,10 @@ namespace PilotPlayer
             sc = new SqlCeConnection("Data Source=" + appPath + "\\..\\..\\PilotPlayerDB.sdf" + ";Persist Security Info=False;");
             openConnection();
             removeDups();
+            foreach (string record in grabActiveURLs())
+            {
+                Console.WriteLine(record);
+            }
         }
 
         public SqlCeConnection getSqlConnection()
@@ -174,6 +178,25 @@ namespace PilotPlayer
                 count++;
             }
             return mediaURLs;
+        }
+
+        public string[] grabActiveURLs()
+        {
+
+            ArrayList mediaURLs = new ArrayList();
+            string query = "SELECT * FROM Media;";
+            sqlCmd = new SqlCeCommand(query, sc);
+            sqlRdr = sqlCmd.ExecuteReader();
+            while (sqlRdr.Read())
+            {
+                if ((DateTime.Parse(sqlRdr["date_start"].ToString()) < DateTime.Now) && 
+                    (DateTime.Parse(sqlRdr["date_end"].ToString()) > DateTime.Now))
+                {
+                    Console.WriteLine("Okay");
+                    mediaURLs.Add(sqlRdr["url"].ToString());
+                }
+            }
+            return mediaURLs.ToArray(typeof(string)) as string[];
         }
 
         public Hashtable[] getMediaTable()
