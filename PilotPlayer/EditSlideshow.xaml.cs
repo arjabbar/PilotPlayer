@@ -41,15 +41,19 @@ namespace PilotPlayer
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            ArrayList idsToDelete = new ArrayList();
             dbInterface.openConnection();
-            for (int i = 0; (i < startRow + 5) && (i < tableData.Length); i++)
+            foreach (CheckBox cb in cbs)
             {
-                if (cbs[i].IsChecked == true)
+                if (cb.IsChecked == true)
                 {
-                    idsToDelete.Add(tableData[i + startRow]["media_id"]);
+                    if (System.Windows.Forms.MessageBox.Show("Really delete " + cb.Tag.ToString() + "?", "Delete media file", System.Windows.Forms.MessageBoxButtons.YesNo) 
+                        == (System.Windows.Forms.DialogResult.Yes))
+                    {
+                        dbInterface.removeFirstOccurance(cb.Tag as string);
+                    }
                 }
             }
+            updateEntries();
         }
 
         private void addElemToGrid(UIElement element, int row, int col, Grid grid)
@@ -71,12 +75,13 @@ namespace PilotPlayer
 
         private void updateEntries()
         {
-            
+            tableData = dbInterface.getMediaTable();
             int row = 0;
             grid.RowDefinitions.Clear();
             for (int i = startRow; (i < startRow + 5) && (i < tableData.Length); i++)
             {
                 cbs[row] = new CheckBox();
+                cbs[row].Tag = tableData[i]["url"].ToString();
                 cbs[row].Checked += new RoutedEventHandler(cb_checked);
                 grid.RowDefinitions.Add(new RowDefinition());
                 TextBox filename = new TextBox();
