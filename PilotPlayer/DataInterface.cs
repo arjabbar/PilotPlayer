@@ -189,8 +189,8 @@ namespace PilotPlayer
             sqlRdr = sqlCmd.ExecuteReader();
             while (sqlRdr.Read())
             {
-                if ((DateTime.Parse(sqlRdr["date_start"].ToString()) < DateTime.Now) && 
-                    (DateTime.Parse(sqlRdr["date_end"].ToString()) > DateTime.Now))
+                if ((DateTime.Parse(sqlRdr["date_start"].ToString()) <= DateTime.Now) && 
+                    (DateTime.Parse(sqlRdr["date_end"].ToString()) >= DateTime.Now))
                 {
                     Console.WriteLine("Okay");
                     mediaURLs.Add(sqlRdr["url"].ToString());

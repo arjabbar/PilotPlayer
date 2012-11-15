@@ -43,7 +43,7 @@ namespace PilotPlayer
             dtPickerStart.Text = DateTime.Today.ToString();
             dtPickerEnd.Text = DateTime.Today.ToString();
             dtPickerStart.DisplayDateStart = DateTime.Now;
-            dtPickerEnd.DisplayDateStart = DateTime.Now;
+            dtPickerEnd.DisplayDateStart = DateTime.Parse(DateTime.Today.ToShortDateString() + " 23:59:59");
         }
 
         //btn Choose File will allow the user to choose a file to upload
@@ -119,7 +119,7 @@ namespace PilotPlayer
                     dbInterface.openConnection();
 
                     //dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
-                    mainApplication = new MainWindow(dtPickerStart, dtPickerEnd);
+                    mainApplication = new MainWindow();
                     mainApplication.Show();
                     mainApplication.StartSlideshow();
                  

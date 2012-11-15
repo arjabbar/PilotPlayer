@@ -20,22 +20,18 @@ namespace PilotPlayer
     {
         private MediaObject mObject;
         private String[] mediaList;
-        private DatePicker dtPickerStart;
-        private DatePicker dtPickerEnd;
         private System.Uri mediaURI;
         private int currentSelection;
+        private DataInterface dbInterface;
 
-        public MainWindow(DatePicker dtPickerStart, DatePicker dtPickerEnd)
+        public MainWindow()
         {
-            this.dtPickerStart = dtPickerStart;
-            this.dtPickerEnd = dtPickerEnd;
-
             InitializeComponent();
             WindowState = WindowState.Normal;
             WindowStyle = WindowStyle.None;
             Topmost = true;
-
-            WindowState = WindowState.Maximized;
+            
+            //WindowState = WindowState.Maximized;
             mElement.LoadedBehavior = MediaState.Manual;
             mElement.Clock = null;
             currentSelection = 0;
@@ -43,11 +39,11 @@ namespace PilotPlayer
 
         public void StartSlideshow()
         {
-            DataInterface dbInterface = new DataInterface();
+            dbInterface = new DataInterface();
             dbInterface.openConnection();
-            dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
+            //dbInterface.updateDateRange(dtPickerStart, dtPickerEnd);
 
-            mediaList = dbInterface.grabURLs();
+            mediaList = dbInterface.grabActiveURLs();
 
             mElement.MediaEnded += new RoutedEventHandler(mElement_MediaEnded);
             mElement.MediaFailed += new EventHandler<ExceptionRoutedEventArgs>(mElement_MediaFailed);
@@ -58,13 +54,21 @@ namespace PilotPlayer
 
         private void loadMedia()
         {
-            mediaURI = new System.Uri(mediaList[currentSelection]);
-            mElement.Source = mediaURI;
-            mElement.Width = this.Width;
-            mElement.Height = this.Height;
-            mObject = new MediaObject(mElement);
+            if (mediaList.Length > 0)
+            {
+                mediaURI = new System.Uri(mediaList[currentSelection]);
+                mElement.Source = mediaURI;
+                mElement.Width = this.Width;
+                mElement.Height = this.Height;
+                mObject = new MediaObject(mElement);
 
-            mObject.playVideoMedia();
+                mObject.playVideoMedia();
+            }
+            else
+            {
+                MessageBox.Show("Error! No media items to play at this time. Please add some and try again.");
+                this.Close();
+            }
         }
 
         private void mElement_MediaOpened(object sender, RoutedEventArgs e)
@@ -84,6 +88,7 @@ namespace PilotPlayer
             }
             else
             {
+                mediaList = dbInterface.grabActiveURLs();
                 currentSelection = 0;
             }
             loadMedia();
