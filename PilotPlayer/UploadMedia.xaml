@@ -11,9 +11,15 @@
         <Label Content="Choose a Start Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="118,97,0,0" Name="lblStartDate" VerticalAlignment="Top" />
         <Label Content="Pilot Player"  FontFamily="Georgia" FontSize="35" Height="50" HorizontalAlignment="Left" Margin="213,12,0,0" Name="lblTitle" VerticalAlignment="Top" Width="258" />
         <Label Content="Choose an End Date for Slideshow" Height="28" HorizontalAlignment="Left" Margin="117,140,0,0" Name="label1" VerticalAlignment="Top" />
-        <Button Content="Start Slideshow" Height="23" HorizontalAlignment="Left" Margin="427,186,0,0" Name="btnStartSlideshow" VerticalAlignment="Top" Width="103" Click="btnStartSlideshow_Click" />
-        <Button Content="Edit Slideshow" Height="23" HorizontalAlignment="Left" Margin="318,186,0,0" Name="btnEditSlideshow" VerticalAlignment="Top" Width="103" Click="btnEditSlideshow_Click" />
+        <Button Content="Start Slideshow" Height="23" HorizontalAlignment="Left" Margin="454,186,0,0" Name="btnStartSlideshow" VerticalAlignment="Top" Width="103" Click="btnStartSlideshow_Click" IsEnabled="False" Visibility="Hidden" />
+        <Button Content="Edit Slideshow" Height="23" HorizontalAlignment="Left" Margin="318,186,0,0" Name="btnEditSlideshow" VerticalAlignment="Top" Width="103" Click="btnEditSlideshow_Click" Visibility="Hidden" IsEnabled="False" />
         <Image Height="39" HorizontalAlignment="Left" Margin="598,56,0,0" Name="check" Stretch="Fill" VerticalAlignment="Top" Width="39" Source="/PilotPlayer;component/bin/check.png" Visibility="Hidden" />
         <Label Height="53" HorizontalAlignment="Left" Margin="23,174,0,0" Name="lblStatus" VerticalAlignment="Top" Width="285" />
+        <Image Height="46" HorizontalAlignment="Right" Margin="0,174,89,0" Name="btnStart" Stretch="Fill" VerticalAlignment="Top" Width="129" Source="/PilotPlayer;component/startbtn.png" DataContext="{Binding}" MouseEnter="btnStart_MouseEnter" MouseLeave="btnStart_MouseLeave" MouseDown="btnStart_MouseDown" MouseUp="btnStart_MouseUp" />
+        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,89,0" Name="btnStartHover" Source="/PilotPlayer;component/startbtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-1" />
+        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,89,0" Name="btnStartDown" Source="/PilotPlayer;component/startbtn_down.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-2" />
+        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,225,0" Name="btnEdit" Source="/PilotPlayer;component/editbtn.png" Stretch="Fill" VerticalAlignment="Top" Width="129" MouseEnter="btnEdit_MouseEnter" MouseLeave="btnEdit_MouseLeave" MouseDown="btnEdit_MouseDown" MouseUp="btnEdit_MouseUp" />
+        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,225,0" Name="btnEditHover" Source="/PilotPlayer;component/editbtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-1" />
+        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,225,0" Name="image1" Source="/PilotPlayer;component/editbtn_down.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-2" />
     </Grid>
 </Window>

@@ -23,8 +23,12 @@ namespace PilotPlayer
     public partial class UploadMedia : Window
     {
         Timer timer = new Timer();
+        Timer btnStartfader = new Timer();
+        Timer btnStartUnfader = new Timer();
+        Timer btnEditfader = new Timer();
+        Timer btnEditUnfader = new Timer();
         string[] mediaURLs;
-
+        string projectFolder = System.Windows.Forms.Application.StartupPath + "\\..\\..\\";
         DataInterface dbInterface;
 
         public UploadMedia()
@@ -158,6 +162,114 @@ namespace PilotPlayer
             Random r = new Random();
             int element = r.Next(array.Length);
             return array[element];
+        }
+
+        private void btnStart_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnStartUnfader.Tick -= new EventHandler(btnStartUnfader_Tick);
+            btnStartfader.Tick += new EventHandler(btnStartFader_Tick);
+            btnStartfader.Interval = 10;
+            btnStartfader.Start();
+        }
+
+        private void btnStart_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnStartfader.Tick -= new EventHandler(btnStartFader_Tick);
+            btnStartUnfader.Tick += new EventHandler(btnStartUnfader_Tick);
+            btnStartUnfader.Interval = 10;
+            btnStartUnfader.Start();
+        }
+
+        private void btnStart_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnStart.Opacity = 0;
+            btnStartHover.Opacity = 0;
+            btnStartSlideshow_Click(null, new RoutedEventArgs());
+        }
+
+        private void btnStart_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            btnStartHover.Opacity = 1;
+        }
+
+        private void btnStartFader_Tick(Object sender, EventArgs e)
+        {
+            btnStartUnfader.Stop();
+            if (btnStart.Opacity > 0)
+            {
+                btnStart.Opacity -= 0.1;
+            }
+            else
+            {
+                btnStartfader.Stop();
+            }
+        }
+
+        private void btnStartUnfader_Tick(Object sender, EventArgs e)
+        {
+            btnStartfader.Stop();
+            if (btnStart.Opacity < 1)
+            {
+                btnStart.Opacity += 0.1;
+            }
+            else
+            {
+                btnStartUnfader.Stop();
+            }
+        }
+
+        private void btnEdit_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnEditUnfader.Tick -= new EventHandler(btnEditUnfader_Tick);
+            btnEditfader.Tick += new EventHandler(btnEditFader_Tick);
+            btnEditfader.Interval = 10;
+            btnEditfader.Start();
+        }
+
+        private void btnEdit_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnEditfader.Tick -= new EventHandler(btnEditFader_Tick);
+            btnEditUnfader.Tick += new EventHandler(btnEditUnfader_Tick);
+            btnEditUnfader.Interval = 10;
+            btnEditUnfader.Start();
+        }
+
+        private void btnEdit_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnEdit.Opacity = 0;
+            btnEditHover.Opacity = 0;
+            btnEditSlideshow_Click(null, new RoutedEventArgs());
+        }
+
+        private void btnEdit_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            btnEditHover.Opacity = 1;
+        }
+
+        private void btnEditFader_Tick(Object sender, EventArgs e)
+        {
+            btnEditUnfader.Stop();
+            if (btnEdit.Opacity > 0)
+            {
+                btnEdit.Opacity -= 0.1;
+            }
+            else
+            {
+                btnEditfader.Stop();
+            }
+        }
+
+        private void btnEditUnfader_Tick(Object sender, EventArgs e)
+        {
+            btnEditfader.Stop();
+            if (btnEdit.Opacity < 1)
+            {
+                btnEdit.Opacity += 0.1;
+            }
+            else
+            {
+                btnEditUnfader.Stop();
+            }
         }
     }
 }

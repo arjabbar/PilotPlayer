@@ -178,8 +178,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="startbtn_down.png" />
+    <Resource Include="startbtn_hover.png" />
+    <Resource Include="startbtn.png" />
     <Resource Include="bin\page_back.png" />
     <Resource Include="bin\page_forward.png" />
+    <Resource Include="btn.png" />
+    <Resource Include="btn_hover.png" />
+    <Resource Include="editbtn.png" />
+    <Resource Include="editbtn_hover.png" />
+    <Resource Include="editbtn_down.png" />
     <Content Include="PilotPlayerDB.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
