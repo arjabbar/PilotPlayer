@@ -148,9 +148,6 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\check.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
@@ -178,25 +175,27 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="PilotPlayerLogo.png" />
-    <Resource Include="startbtn_down.png" />
-    <Resource Include="startbtn_hover.png" />
-    <Resource Include="startbtn.png" />
-    <Resource Include="bin\page_back.png" />
-    <Resource Include="bin\page_forward.png" />
-    <Resource Include="btn.png" />
-    <Resource Include="btn_hover.png" />
-    <Resource Include="editbtn.png" />
-    <Resource Include="editbtn_hover.png" />
-    <Resource Include="editbtn_down.png" />
-    <Resource Include="choosefilebtn.png" />
-    <Resource Include="choosefilebtn_hover.png" />
-    <Resource Include="btnupload.png" />
-    <Resource Include="btnupload_hover.png" />
-    <Resource Include="loading.gif" />
+    <Resource Include="images\check.png" />
+    <Resource Include="images\btnupload.png" />
+    <Resource Include="images\btnupload_hover.png" />
+    <Resource Include="images\choosefilebtn.png" />
+    <Resource Include="images\choosefilebtn_hover.png" />
+    <Resource Include="images\editbtn.png" />
+    <Resource Include="images\editbtn_hover.png" />
+    <Resource Include="images\editbtn_down.png" />
+    <Resource Include="images\startbtn.png" />
+    <Resource Include="images\startbtn_hover.png" />
+    <Resource Include="images\startbtn_down.png" />
+    <Resource Include="images\PilotPlayerLogo.png" />
+    <Resource Include="images\loading.gif" />
+    <Resource Include="images\page_back.png" />
+    <Resource Include="images\page_forward.png" />
     <Content Include="PilotPlayerDB.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

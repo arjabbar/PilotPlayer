@@ -16,7 +16,7 @@
                 <ColumnDefinition Name="End" Width="96*" />
             </Grid.ColumnDefinitions>
         </Grid>
-        <Image Height="46" HorizontalAlignment="Left" Margin="113,210,0,0" Name="pageBack" Stretch="Fill" VerticalAlignment="Top" Width="60" Source="/PilotPlayer;component/bin/page_back.png" Panel.ZIndex="1" MouseDown="pageBack_MouseDown" Cursor="Hand" />
-        <Image Height="46" HorizontalAlignment="Left" Margin="187,210,0,0" Name="pageForward" Stretch="Fill" VerticalAlignment="Top" Width="60" Source="/PilotPlayer;component/bin/page_forward.png" Panel.ZIndex="1" MouseDown="pageForward_MouseDown" Cursor="Hand" />
+        <Image Height="46" HorizontalAlignment="Left" Margin="113,210,0,0" Name="pageBack" Stretch="Fill" VerticalAlignment="Top" Width="60" Source="/PilotPlayer;component/images/page_back.png" Panel.ZIndex="1" MouseDown="pageBack_MouseDown" Cursor="Hand" />
+        <Image Height="46" HorizontalAlignment="Left" Margin="187,210,0,0" Name="pageForward" Stretch="Fill" VerticalAlignment="Top" Width="60" Source="/PilotPlayer;component/images/page_forward.png" Panel.ZIndex="1" MouseDown="pageForward_MouseDown" Cursor="Hand" />
     </Grid>
 </Window>
