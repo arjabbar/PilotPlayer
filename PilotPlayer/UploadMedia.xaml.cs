@@ -27,6 +27,10 @@ namespace PilotPlayer
         Timer btnStartUnfader = new Timer();
         Timer btnEditfader = new Timer();
         Timer btnEditUnfader = new Timer();
+        Timer btnFilefader = new Timer();
+        Timer btnFileUnfader = new Timer();
+        Timer btnuploadfader = new Timer();
+        Timer btnuploadUnfader = new Timer();
         string[] mediaURLs;
         string projectFolder = System.Windows.Forms.Application.StartupPath + "\\..\\..\\";
         DataInterface dbInterface;
@@ -67,8 +71,10 @@ namespace PilotPlayer
         //btn Upload will upload the media to the database
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
+            animatedLoader.Visibility = Visibility.Visible;
             try
             {
+                
                 dbInterface.openConnection();
 
                 MediaObject mediaObject = new MediaObject(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
@@ -88,9 +94,11 @@ namespace PilotPlayer
                     lblStatus.Content += "There was an error uploading the media.\n";
                     timer.Start();
                 }
+                animatedLoader.Visibility = Visibility.Hidden;
             }
             catch (UriFormatException ufe)
             {
+                animatedLoader.Visibility = Visibility.Hidden;
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
@@ -99,6 +107,7 @@ namespace PilotPlayer
             }
             catch (InvalidOperationException ioe)
             {
+                animatedLoader.Visibility = Visibility.Hidden;
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
@@ -153,6 +162,7 @@ namespace PilotPlayer
 
         public void eraseLblError(object sender, EventArgs e)
         {
+            check.Opacity = 0;
             lblStatus.Content = "";
             timer.Stop();
         }
@@ -269,6 +279,100 @@ namespace PilotPlayer
             else
             {
                 btnEditUnfader.Stop();
+            }
+        }
+
+        private void btnFile_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnChooseFile_Click(null, null);
+        }
+
+        private void btnFile_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnFileUnfader.Tick -= new EventHandler(btnFileUnfader_Tick);
+            btnFilefader.Tick += new EventHandler(btnFileFader_Tick);
+            btnFilefader.Interval = 10;
+            btnFilefader.Start();
+        }
+
+        private void btnFile_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnFilefader.Tick -= new EventHandler(btnFileFader_Tick);
+            btnFileUnfader.Tick += new EventHandler(btnFileUnfader_Tick);
+            btnFileUnfader.Interval = 10;
+            btnFileUnfader.Start();
+        }
+
+        private void btnFileFader_Tick(Object sender, EventArgs e)
+        {
+            btnFileUnfader.Stop();
+            if (btnFile.Opacity > 0)
+            {
+                btnFile.Opacity -= 0.1;
+            }
+            else
+            {
+                btnFilefader.Stop();
+            }
+        }
+
+        private void btnFileUnfader_Tick(Object sender, EventArgs e)
+        {
+            btnFilefader.Stop();
+            if (btnFile.Opacity < 1)
+            {
+                btnFile.Opacity += 0.1;
+            }
+            else
+            {
+                btnFileUnfader.Stop();
+            }
+        }
+
+        private void btnupload_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            btnUpload_Click(null, null);
+        }
+
+        private void btnupload_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnuploadUnfader.Tick -= new EventHandler(btnuploadUnfader_Tick);
+            btnuploadfader.Tick += new EventHandler(btnuploadFader_Tick);
+            btnuploadfader.Interval = 10;
+            btnuploadfader.Start();
+        }
+
+        private void btnupload_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            btnuploadfader.Tick -= new EventHandler(btnuploadFader_Tick);
+            btnuploadUnfader.Tick += new EventHandler(btnuploadUnfader_Tick);
+            btnuploadUnfader.Interval = 10;
+            btnuploadUnfader.Start();
+        }
+
+        private void btnuploadFader_Tick(Object sender, EventArgs e)
+        {
+            btnuploadUnfader.Stop();
+            if (btnupload.Opacity > 0)
+            {
+                btnupload.Opacity -= 0.1;
+            }
+            else
+            {
+                btnuploadfader.Stop();
+            }
+        }
+
+        private void btnuploadUnfader_Tick(Object sender, EventArgs e)
+        {
+            btnuploadfader.Stop();
+            if (btnupload.Opacity < 1)
+            {
+                btnupload.Opacity += 0.1;
+            }
+            else
+            {
+                btnuploadUnfader.Stop();
             }
         }
     }

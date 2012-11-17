@@ -188,6 +188,11 @@
     <Resource Include="editbtn.png" />
     <Resource Include="editbtn_hover.png" />
     <Resource Include="editbtn_down.png" />
+    <Resource Include="choosefilebtn.png" />
+    <Resource Include="choosefilebtn_hover.png" />
+    <Resource Include="btnupload.png" />
+    <Resource Include="btnupload_hover.png" />
+    <Resource Include="loading.gif" />
     <Content Include="PilotPlayerDB.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -3,8 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Upload Media" Height="278" Width="694">
     <Grid>
-        <Button Content="Choose File" Height="23" HorizontalAlignment="Left" Margin="427,64,0,0" Name="btnChooseFile" VerticalAlignment="Top" Width="75" Click="btnChooseFile_Click" />
-        <Button Content="Upload" Height="23" HorizontalAlignment="Left" Margin="508,64,0,0" Name="btnUpload" VerticalAlignment="Top" Width="75" Click="btnUpload_Click" />
+        <Button Content="Choose File" Height="23" HorizontalAlignment="Left" Margin="427,64,0,0" Name="btnChooseFile" VerticalAlignment="Top" Width="75" Click="btnChooseFile_Click" IsEnabled="False" Visibility="Hidden" />
+        <Button Content="Upload" Height="23" HorizontalAlignment="Left" Margin="508,64,0,0" Name="btnUpload" VerticalAlignment="Top" Width="75" Click="btnUpload_Click" IsEnabled="False" Visibility="Hidden" />
         <TextBox Height="23" HorizontalAlignment="Left" Margin="39,64,0,0" Name="txtUploadPath" VerticalAlignment="Top" Width="382" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="306,97,0,0" Name="dtPickerStart" VerticalAlignment="Top" Width="115" />
         <DatePicker Height="25" HorizontalAlignment="Left" Margin="306,141,0,0" Name="dtPickerEnd" VerticalAlignment="Top" Width="115" />
@@ -21,5 +21,10 @@
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,225,0" Name="btnEdit" Source="/PilotPlayer;component/editbtn.png" Stretch="Fill" VerticalAlignment="Top" Width="129" MouseEnter="btnEdit_MouseEnter" MouseLeave="btnEdit_MouseLeave" MouseDown="btnEdit_MouseDown" MouseUp="btnEdit_MouseUp" />
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,225,0" Name="btnEditHover" Source="/PilotPlayer;component/editbtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-1" />
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,174,225,0" Name="image1" Source="/PilotPlayer;component/editbtn_down.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-2" />
+        <Image Height="65" HorizontalAlignment="Left" Margin="432,43,0,0" Name="btnFile" Stretch="Fill" VerticalAlignment="Top" Width="65" Source="/PilotPlayer;component/choosefilebtn.png" MouseDown="btnFile_MouseDown" MouseLeave="btnFile_MouseLeave" MouseEnter="btnFile_MouseEnter" />
+        <Image Height="65" HorizontalAlignment="Left" Margin="432,43,0,0" Name="btnFileHover" Source="/PilotPlayer;component/choosefilebtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="65" Panel.ZIndex="-1" />
+        <Image Height="65" HorizontalAlignment="Left" Margin="518,43,0,0" Name="btnupload" Source="/PilotPlayer;component/btnupload.png" Stretch="Fill" VerticalAlignment="Top" Width="65" MouseLeave="btnupload_MouseLeave" MouseEnter="btnupload_MouseEnter" MouseDown="btnupload_MouseDown" />
+        <Image Height="65" HorizontalAlignment="Left" Margin="518,43,0,0" Name="btnuploadHover" Source="/PilotPlayer;component/btnupload_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="65" Panel.ZIndex="-1" />
+        <Image Height="121" HorizontalAlignment="Left" Margin="526,15,0,0" Name="animatedLoader" Stretch="UniformToFill" VerticalAlignment="Top" Width="118" Source="/PilotPlayer;component/loading.gif" Visibility="Hidden" Panel.ZIndex="-1" />
     </Grid>
 </Window>
