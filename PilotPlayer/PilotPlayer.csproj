@@ -178,6 +178,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="PilotPlayerLogo.png" />
     <Resource Include="startbtn_down.png" />
     <Resource Include="startbtn_hover.png" />
     <Resource Include="startbtn.png" />

@@ -162,7 +162,7 @@ namespace PilotPlayer
 
         public void eraseLblError(object sender, EventArgs e)
         {
-            check.Opacity = 0;
+            check.Visibility = Visibility.Hidden;
             lblStatus.Content = "";
             timer.Stop();
         }
@@ -178,7 +178,7 @@ namespace PilotPlayer
         {
             btnStartUnfader.Tick -= new EventHandler(btnStartUnfader_Tick);
             btnStartfader.Tick += new EventHandler(btnStartFader_Tick);
-            btnStartfader.Interval = 10;
+            btnStartfader.Interval = 5;
             btnStartfader.Start();
         }
 
@@ -186,7 +186,7 @@ namespace PilotPlayer
         {
             btnStartfader.Tick -= new EventHandler(btnStartFader_Tick);
             btnStartUnfader.Tick += new EventHandler(btnStartUnfader_Tick);
-            btnStartUnfader.Interval = 10;
+            btnStartUnfader.Interval = 5;
             btnStartUnfader.Start();
         }
 
@@ -207,7 +207,7 @@ namespace PilotPlayer
             btnStartUnfader.Stop();
             if (btnStart.Opacity > 0)
             {
-                btnStart.Opacity -= 0.1;
+                btnStart.Opacity -= 0.2;
             }
             else
             {
@@ -220,7 +220,7 @@ namespace PilotPlayer
             btnStartfader.Stop();
             if (btnStart.Opacity < 1)
             {
-                btnStart.Opacity += 0.1;
+                btnStart.Opacity += 0.2;
             }
             else
             {
@@ -232,7 +232,7 @@ namespace PilotPlayer
         {
             btnEditUnfader.Tick -= new EventHandler(btnEditUnfader_Tick);
             btnEditfader.Tick += new EventHandler(btnEditFader_Tick);
-            btnEditfader.Interval = 10;
+            btnEditfader.Interval = 5;
             btnEditfader.Start();
         }
 
@@ -240,7 +240,7 @@ namespace PilotPlayer
         {
             btnEditfader.Tick -= new EventHandler(btnEditFader_Tick);
             btnEditUnfader.Tick += new EventHandler(btnEditUnfader_Tick);
-            btnEditUnfader.Interval = 10;
+            btnEditUnfader.Interval = 5;
             btnEditUnfader.Start();
         }
 
@@ -261,7 +261,7 @@ namespace PilotPlayer
             btnEditUnfader.Stop();
             if (btnEdit.Opacity > 0)
             {
-                btnEdit.Opacity -= 0.1;
+                btnEdit.Opacity -= 0.2;
             }
             else
             {
@@ -274,7 +274,7 @@ namespace PilotPlayer
             btnEditfader.Stop();
             if (btnEdit.Opacity < 1)
             {
-                btnEdit.Opacity += 0.1;
+                btnEdit.Opacity += 0.2;
             }
             else
             {
@@ -291,7 +291,7 @@ namespace PilotPlayer
         {
             btnFileUnfader.Tick -= new EventHandler(btnFileUnfader_Tick);
             btnFilefader.Tick += new EventHandler(btnFileFader_Tick);
-            btnFilefader.Interval = 10;
+            btnFilefader.Interval = 5;
             btnFilefader.Start();
         }
 
@@ -299,7 +299,7 @@ namespace PilotPlayer
         {
             btnFilefader.Tick -= new EventHandler(btnFileFader_Tick);
             btnFileUnfader.Tick += new EventHandler(btnFileUnfader_Tick);
-            btnFileUnfader.Interval = 10;
+            btnFileUnfader.Interval = 5;
             btnFileUnfader.Start();
         }
 
@@ -308,7 +308,7 @@ namespace PilotPlayer
             btnFileUnfader.Stop();
             if (btnFile.Opacity > 0)
             {
-                btnFile.Opacity -= 0.1;
+                btnFile.Opacity -= 0.2;
             }
             else
             {
@@ -321,7 +321,7 @@ namespace PilotPlayer
             btnFilefader.Stop();
             if (btnFile.Opacity < 1)
             {
-                btnFile.Opacity += 0.1;
+                btnFile.Opacity += 0.2;
             }
             else
             {
@@ -338,7 +338,7 @@ namespace PilotPlayer
         {
             btnuploadUnfader.Tick -= new EventHandler(btnuploadUnfader_Tick);
             btnuploadfader.Tick += new EventHandler(btnuploadFader_Tick);
-            btnuploadfader.Interval = 10;
+            btnuploadfader.Interval = 5;
             btnuploadfader.Start();
         }
 
@@ -346,7 +346,7 @@ namespace PilotPlayer
         {
             btnuploadfader.Tick -= new EventHandler(btnuploadFader_Tick);
             btnuploadUnfader.Tick += new EventHandler(btnuploadUnfader_Tick);
-            btnuploadUnfader.Interval = 10;
+            btnuploadUnfader.Interval = 5;
             btnuploadUnfader.Start();
         }
 
@@ -355,7 +355,7 @@ namespace PilotPlayer
             btnuploadUnfader.Stop();
             if (btnupload.Opacity > 0)
             {
-                btnupload.Opacity -= 0.1;
+                btnupload.Opacity -= 0.2;
             }
             else
             {
@@ -368,7 +368,7 @@ namespace PilotPlayer
             btnuploadfader.Stop();
             if (btnupload.Opacity < 1)
             {
-                btnupload.Opacity += 0.1;
+                btnupload.Opacity += 0.2;
             }
             else
             {
