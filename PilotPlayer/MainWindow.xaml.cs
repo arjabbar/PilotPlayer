@@ -62,6 +62,10 @@ namespace PilotPlayer
                 mElement.Height = this.Height;
                 mObject = new MediaObject(mElement);
 
+                Uri uri = new Uri(mediaURI.ToString());
+                string fileName = System.IO.Path.GetFileNameWithoutExtension(uri.LocalPath);
+                dbInterface.sayFileName(fileName);
+
                 mObject.playVideoMedia();
             }
             else

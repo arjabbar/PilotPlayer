@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Data.SqlServerCe;
 using System.Windows.Controls;
 using System.Collections;
+using System.Speech.Synthesis;
 
 /*
  * This Class will act as the interface to our database. 
@@ -22,6 +23,7 @@ namespace PilotPlayer
         SqlCeDataReader sqlRdr;
         String appPath;
         public enum Order { ASC, DESC};
+        SpeechSynthesizer speech;
 
         public DataInterface()
         {
@@ -29,6 +31,7 @@ namespace PilotPlayer
             sc = new SqlCeConnection("Data Source=" + appPath + "\\..\\..\\PilotPlayerDB.sdf" + ";Persist Security Info=False;");
             openConnection();
             removeDups();
+            speech = new SpeechSynthesizer();
             foreach (string record in grabActiveURLs())
             {
                 Console.WriteLine(record);
@@ -261,24 +264,10 @@ namespace PilotPlayer
             return table;
         }
 
-
-        //When user clicks Start Slideshow, the dates selected on the Upload window need to match the dates in the databases
-        //Error checking for date ranges was done in UploadMedia.btnStartSlideshow
-        internal void updateDateRange(DatePicker dtPickerStart, DatePicker dtPickerEnd)
+        //Method that speeks the file name of the media about to be played
+        public void sayFileName(String fileName)
         {
-
-            var updateDates = "UPDATE Media SET date_start = '" + dtPickerStart + "', date_end = '" + dtPickerEnd + "'";
-            
-            try
-            {
-                sqlCmd = new SqlCeCommand(updateDates, sc);
-                sqlRdr = sqlCmd.ExecuteReader();
-                sqlRdr.Close();               
-            }
-            catch (SqlCeException sqlEx)
-            {
-                MessageBox.Show(sqlEx.Errors.ToString());
-            }
+            speech.Speak(fileName);
         }
 
         public int update(string column, string newValue, params string[] conditions)
