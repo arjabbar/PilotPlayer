@@ -14,29 +14,29 @@
         <Button Content="Edit Slideshow" Height="23" HorizontalAlignment="Left" Margin="447,228,0,0" Name="btnEditSlideshow" VerticalAlignment="Top" Width="103" Click="btnEditSlideshow_Click" Visibility="Hidden" IsEnabled="False" />
         <Image Height="39" HorizontalAlignment="Left" Margin="618,94,0,0" Name="check" Stretch="Fill" VerticalAlignment="Top" Width="39" Source="/PilotPlayer;component/images/check.png" Visibility="Hidden" Panel.ZIndex="1" />
         <Label Height="53" HorizontalAlignment="Left" Margin="38,216,0,0" Name="lblStatus" VerticalAlignment="Top" Width="285" />
-        <Image Height="46" HorizontalAlignment="Right" Margin="0,216,74,0" Name="btnStart" Stretch="Fill" VerticalAlignment="Top" Width="129" Source="/PilotPlayer;component/images/startbtn.png" DataContext="{Binding}" MouseEnter="btnStart_MouseEnter" MouseLeave="btnStart_MouseLeave" MouseDown="btnStart_MouseDown" MouseUp="btnStart_MouseUp" />
+        <Image Height="46" HorizontalAlignment="Right" Margin="0,216,74,0" Name="btnStart" Stretch="Fill" VerticalAlignment="Top" Width="129" Source="/PilotPlayer;component/images/startbtn.png" DataContext="{Binding}" MouseEnter="btnStart_MouseEnter" MouseLeave="btnStart_MouseLeave" MouseDown="btnStart_MouseDown" MouseUp="btnStart_MouseUp" Cursor="Hand" />
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,216,74,0" Name="btnStartHover" Source="/PilotPlayer;component/images/startbtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-1" />
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,216,74,0" Name="btnStartDown" Source="/PilotPlayer;component/images/startbtn_down.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-2" />
-        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,216,210,0" Name="btnEdit" Source="/PilotPlayer;component/images/editbtn.png" Stretch="Fill" VerticalAlignment="Top" Width="129" MouseEnter="btnEdit_MouseEnter" MouseLeave="btnEdit_MouseLeave" MouseDown="btnEdit_MouseDown" MouseUp="btnEdit_MouseUp" />
+        <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,216,210,0" Name="btnEdit" Source="/PilotPlayer;component/images/editbtn.png" Stretch="Fill" VerticalAlignment="Top" Width="129" MouseEnter="btnEdit_MouseEnter" MouseLeave="btnEdit_MouseLeave" MouseDown="btnEdit_MouseDown" MouseUp="btnEdit_MouseUp" ForceCursor="False" Cursor="Hand" />
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,216,210,0" Name="btnEditHover" Source="/PilotPlayer;component/images/editbtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-1" />
         <Image DataContext="{Binding}" Height="46" HorizontalAlignment="Right" Margin="0,216,210,0" Name="btnEditDown" Source="/PilotPlayer;component/images/editbtn_down.png" Stretch="Fill" VerticalAlignment="Top" Width="129" Panel.ZIndex="-2" />
-        <Image Height="65" HorizontalAlignment="Left" Margin="447,85,0,0" Name="btnFile" Stretch="Fill" VerticalAlignment="Top" Width="65" Source="/PilotPlayer;component/images/choosefilebtn.png" MouseDown="btnFile_MouseDown" MouseLeave="btnFile_MouseLeave" MouseEnter="btnFile_MouseEnter" />
+        <Image Height="65" HorizontalAlignment="Left" Margin="447,85,0,0" Name="btnFile" Stretch="Fill" VerticalAlignment="Top" Width="65" Source="/PilotPlayer;component/images/choosefilebtn.png" MouseDown="btnFile_MouseDown" MouseLeave="btnFile_MouseLeave" MouseEnter="btnFile_MouseEnter" Cursor="Hand" />
         <Image Height="65" HorizontalAlignment="Left" Margin="447,85,0,0" Name="btnFileHover" Source="/PilotPlayer;component/images/choosefilebtn_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="65" Panel.ZIndex="-1" />
-        <Image Height="65" HorizontalAlignment="Left" Margin="531,86,0,0" Name="btnupload" Source="/PilotPlayer;component/images/btnupload.png" Stretch="Fill" VerticalAlignment="Top" Width="65" MouseLeave="btnupload_MouseLeave" MouseEnter="btnupload_MouseEnter" MouseDown="btnupload_MouseDown" />
+        <Image Height="65" HorizontalAlignment="Left" Margin="531,86,0,0" Name="btnupload" Source="/PilotPlayer;component/images/btnupload.png" Stretch="Fill" VerticalAlignment="Top" Width="65" MouseLeave="btnupload_MouseLeave" MouseEnter="btnupload_MouseEnter" MouseDown="btnupload_MouseDown" Cursor="Hand" />
         <Image Height="65" HorizontalAlignment="Left" Margin="533,85,0,0" Name="btnuploadHover" Source="/PilotPlayer;component/images/btnupload_hover.png" Stretch="Fill" VerticalAlignment="Top" Width="65" Panel.ZIndex="-1" />
         <Image Height="121" HorizontalAlignment="Left" Margin="543,56,0,0" Name="animatedLoader" Stretch="UniformToFill" VerticalAlignment="Top" Width="118" Source="/PilotPlayer;component/images/loading.gif" Visibility="Hidden" Panel.ZIndex="-1" />
         <Image Height="76" HorizontalAlignment="Left" Margin="27,42,0,0" Name="image2" Stretch="Uniform" VerticalAlignment="Top" Width="421" Source="/PilotPlayer;component/images/PilotPlayerLogo.png" Panel.ZIndex="0" />
         <DockPanel Height="27" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
-            <Menu Height="23" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top">
-                <MenuItem Header="_File" >
+            <Menu Height="23" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" FontSize="13" Foreground="White" Background="#002C2E9D">
+                <MenuItem Header="_File" Foreground="White">
                     <MenuItem Header="_Start Slideshow" Name="startSlideshow"/>
                     <Separator/>
                     <MenuItem Header="E_xit" Name="exit" />
                 </MenuItem>
-                <MenuItem Header="Edit" Name="edit" >
+                <MenuItem Header="Edit" Name="edit" Foreground="White">
                     <MenuItem Header="Edit Slideshow" Name="editSlideshow" />
                 </MenuItem>
-                <MenuItem Header="_Help">
+                <MenuItem Header="_Help" Foreground="White">
                     <MenuItem Header="_About Pilot Player" Name="about"/>
                     <MenuItem Header="_User Manual" Name="userManual" />
                 </MenuItem>
