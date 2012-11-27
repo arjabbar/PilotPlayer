@@ -29,16 +29,16 @@
         <DockPanel Height="27" HorizontalAlignment="Stretch" Margin="0" Name="dockPanel1" VerticalAlignment="Top" Width="Auto">
             <Menu Height="23" Name="menu1" Width="Auto" DockPanel.Dock="Top" VerticalAlignment="Top" FontSize="13" Foreground="White" Background="#002C2E9D">
                 <MenuItem Header="_File" Foreground="White">
-                    <MenuItem Header="_Start Slideshow" Name="startSlideshow"/>
+                    <MenuItem Header="_Start Slideshow" Name="startSlideshow" Click="btnStartSlideshow_Click" Foreground="Black"/>
                     <Separator/>
-                    <MenuItem Header="E_xit" Name="exit" />
+                    <MenuItem Header="E_xit" Name="exit" Click="exit_Click" Foreground="Black" />
                 </MenuItem>
                 <MenuItem Header="Edit" Name="edit" Foreground="White">
-                    <MenuItem Header="Edit Slideshow" Name="editSlideshow" />
+                    <MenuItem Header="Edit Slideshow" Name="editSlideshow" Click="btnEditSlideshow_Click" Foreground="Black" />
                 </MenuItem>
                 <MenuItem Header="_Help" Foreground="White">
-                    <MenuItem Header="_About Pilot Player" Name="about"/>
-                    <MenuItem Header="_User Manual" Name="userManual" />
+                    <MenuItem Header="_About Pilot Player" Name="about" Click="about_Click" Foreground="Black"/>
+                    <MenuItem Header="_User Manual" Name="userManual" Click="userManual_Click" Foreground="Black"/>
                 </MenuItem>
             </Menu>
         </DockPanel>

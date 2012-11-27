@@ -206,3 +206,5 @@ C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\PilotPlayer.g.resources
 C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
 C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Catherine\Documents\GitHub\PilotPlayer\PilotPlayer\obj\x86\Debug\About.baml
+C:\Users\Catherine\Documents\GitHub\PilotPlayer\PilotPlayer\obj\x86\Debug\About.g.cs

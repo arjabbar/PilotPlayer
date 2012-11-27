@@ -375,5 +375,21 @@ namespace PilotPlayer
                 btnuploadUnfader.Stop();
             }
         }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void about_Click(object sender, RoutedEventArgs e)
+        {
+            About abtWindow = new About();
+            abtWindow.ShowDialog();
+        }
+
+        private void userManual_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
