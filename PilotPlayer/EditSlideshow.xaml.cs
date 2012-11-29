@@ -44,16 +44,24 @@ namespace PilotPlayer
             dbInterface.openConnection();
             foreach (CheckBox cb in cbs)
             {
-                if (cb.IsChecked == true)
+                if (tableData.Length > 0)
                 {
-                    if (System.Windows.Forms.MessageBox.Show("Really delete " + cb.Tag.ToString() + "?", "Delete media file", System.Windows.Forms.MessageBoxButtons.YesNo) 
-                        == (System.Windows.Forms.DialogResult.Yes))
+                    try
                     {
-                        dbInterface.removeFirstOccurance(cb.Tag as string);
+                        if (cb.IsChecked == true)
+                        {
+                            dbInterface.removeFirstOccurance(cb.Tag as string);
+                        }
+                    }
+                    catch (NullReferenceException nre)
+                    {
+
                     }
                 }
             }
+            
             updateEntries();
+            
         }
 
         private void addElemToGrid(UIElement element, int row, int col, Grid grid)
@@ -76,6 +84,15 @@ namespace PilotPlayer
         private void updateEntries()
         {
             tableData = dbInterface.getMediaTable();
+            if (tableData.Length == 0)
+            {
+                grid.Visibility = Visibility.Hidden;
+                return;
+            }
+            else
+            {
+                grid.Visibility = Visibility.Visible;
+            }
             int row = 0;
             grid.RowDefinitions.Clear();
             for (int i = startRow; (i < startRow + 5) && (i < tableData.Length); i++)

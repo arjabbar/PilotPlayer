@@ -260,3 +260,7 @@ C:\Users\Abdur\Documents\Visual Studio 2010\Projects\PP\PilotPlayer\obj\x86\Debu
 C:\Users\Abdur\Documents\Visual Studio 2010\Projects\PP\PilotPlayer\obj\x86\Debug\PilotPlayer.Properties.Resources.resources
 C:\Users\Abdur\Documents\Visual Studio 2010\Projects\PP\PilotPlayer\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Abdur\Documents\Visual Studio 2010\Projects\PP\PilotPlayer\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\About.baml
+C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\UserHelp.baml
+C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\About.g.cs
+C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\UserHelp.g.cs
