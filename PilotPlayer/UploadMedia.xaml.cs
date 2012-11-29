@@ -389,7 +389,9 @@ namespace PilotPlayer
 
         private void userManual_Click(object sender, RoutedEventArgs e)
         {
-
+            UserHelp usrHelp = new UserHelp();
+            usrHelp.Show();
+            
         }
     }
 }
