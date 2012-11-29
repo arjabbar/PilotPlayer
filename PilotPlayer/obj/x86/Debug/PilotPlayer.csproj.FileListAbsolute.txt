@@ -264,3 +264,7 @@ C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\About.baml
 C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\UserHelp.baml
 C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\About.g.cs
 C:\Users\a10004323\Desktop\PP\PilotPlayer\obj\x86\Debug\UserHelp.g.cs
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\About.baml
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UserHelp.baml
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\About.g.cs
+C:\Users\S08017329\Desktop\PilotPlayer\PilotPlayer\obj\x86\Debug\UserHelp.g.cs

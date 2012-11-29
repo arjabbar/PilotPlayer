@@ -49,9 +49,9 @@ namespace PilotPlayer
         {
             txtUploadPath.Text = String.Empty;
             dtPickerStart.Text = DateTime.Today.ToString();
-            dtPickerEnd.Text = DateTime.Today.ToString();
+            dtPickerEnd.Text = DateTime.Today.AddDays(1).ToString();
             dtPickerStart.DisplayDateStart = DateTime.Now;
-            dtPickerEnd.DisplayDateStart = DateTime.Parse(DateTime.Today.ToShortDateString() + " 23:59:59");
+            dtPickerEnd.DisplayDateStart = DateTime.Today.AddDays(1);
         }
 
         //btn Choose File will allow the user to choose a file to upload
@@ -71,34 +71,40 @@ namespace PilotPlayer
         //btn Upload will upload the media to the database
         private void btnUpload_Click(object sender, RoutedEventArgs e)
         {
-            animatedLoader.Visibility = Visibility.Visible;
             try
             {
-                
-                dbInterface.openConnection();
-
-                MediaObject mediaObject = new MediaObject(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
-
-                if (dbInterface.insertMedia(mediaObject))
+                if (dtPickerEnd.SelectedDate > dtPickerStart.SelectedDate
+                   || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
                 {
-                    timer.Tick += new EventHandler(eraseLblError);
-                    lblStatus.Foreground = Brushes.Green;
-                    lblStatus.Content += "Successfully uploaded media.\n";
-                    check.Visibility = System.Windows.Visibility.Visible;
-                    timer.Start();
+                    dbInterface.openConnection();
+
+                    MediaObject mediaObject = new MediaObject(txtUploadPath.Text, dtPickerStart.SelectedDate.Value, dtPickerEnd.SelectedDate.Value);
+
+                    if (dbInterface.insertMedia(mediaObject))
+                    {
+                        timer.Tick += new EventHandler(eraseLblError);
+                        lblStatus.Foreground = Brushes.Green;
+                        lblStatus.Content += "Successfully uploaded media.\n";
+                        check.Visibility = System.Windows.Visibility.Visible;
+                        timer.Start();
+                    }
+                    else
+                    {
+                        timer.Tick += new EventHandler(eraseLblError);
+                        lblStatus.Foreground = Brushes.Red;
+                        lblStatus.Content += "There was an error uploading the media.\n";
+                        timer.Start();
+                    }
+                   
                 }
                 else
                 {
-                    timer.Tick += new EventHandler(eraseLblError);
-                    lblStatus.Foreground = Brushes.Red;
-                    lblStatus.Content += "There was an error uploading the media.\n";
-                    timer.Start();
+                    System.Windows.Forms.MessageBox.Show("Dates cannot be equal or blank");
                 }
-                animatedLoader.Visibility = Visibility.Hidden;
             }
             catch (UriFormatException ufe)
             {
-                animatedLoader.Visibility = Visibility.Hidden;
+                
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
@@ -107,7 +113,6 @@ namespace PilotPlayer
             }
             catch (InvalidOperationException ioe)
             {
-                animatedLoader.Visibility = Visibility.Hidden;
                 lblStatus.Foreground = Brushes.Red;
                 lblStatus.Opacity = 1;
                 timer.Tick += new EventHandler(eraseLblError);
@@ -126,7 +131,7 @@ namespace PilotPlayer
 
             try
             {
-                if (dtPickerEnd.SelectedDate >= dtPickerStart.SelectedDate 
+                if (dtPickerEnd.SelectedDate > dtPickerStart.SelectedDate
                    || string.IsNullOrWhiteSpace(dtPickerStart.ToString()) || string.IsNullOrWhiteSpace(dtPickerEnd.ToString()))
                 {
                     dbInterface.openConnection();
