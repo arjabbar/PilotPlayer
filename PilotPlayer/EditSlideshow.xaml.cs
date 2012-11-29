@@ -102,8 +102,10 @@ namespace PilotPlayer
                 cbs[row].Checked += new RoutedEventHandler(cb_checked);
                 grid.RowDefinitions.Add(new RowDefinition());
                 TextBox filename = new TextBox();
+                filename.IsReadOnly = true;
                 filename.Text = tableData[i]["filename"].ToString();
                 TextBox filetype = new TextBox();
+                filetype.IsReadOnly = true;
                 filetype.Text = MediaFileUtilities.getFileType(tableData[i]["file_extension"].ToString());
                 DatePicker dateStart = new DatePicker();
                 DatePicker dateEnd = new DatePicker();
