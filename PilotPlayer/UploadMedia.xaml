@@ -42,6 +42,7 @@
                 </MenuItem>
             </Menu>
         </DockPanel>
+        <CheckBox Content="Enable Voiceover" Height="16" HorizontalAlignment="Left" Margin="525,267,0,0" Name="cbVoice" VerticalAlignment="Top" Width="188" Checked="cbVoice_Checked" Unchecked="cbVoice_Unchecked" />
     </Grid>
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

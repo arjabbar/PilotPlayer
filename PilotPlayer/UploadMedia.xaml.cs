@@ -393,5 +393,15 @@ namespace PilotPlayer
             usrHelp.Show();
             
         }
+
+        private void cbVoice_Checked(object sender, RoutedEventArgs e)
+        {
+            dbInterface.speechOn = true;
+        }
+
+        private void cbVoice_Unchecked(object sender, RoutedEventArgs e)
+        {
+            dbInterface.speechOn = false;
+        }
     }
 }
