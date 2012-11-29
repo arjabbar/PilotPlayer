@@ -70,7 +70,7 @@ namespace PilotPlayer
             }
             else
             {
-                MessageBox.Show("Error! No media items to play at this time. Please add some and try again.");
+                MessageBox.Show("Excuse me, but there seems to be no media items to play at this time. Please add/edit some entries that would play today and try again. Thank you!");
                 this.Close();
             }
         }
