@@ -24,7 +24,6 @@ namespace PilotPlayer
         String appPath;
         public enum Order { ASC, DESC};
         SpeechSynthesizer speech;
-        public bool speechOn = false;
 
         public DataInterface()
         {
@@ -265,10 +264,10 @@ namespace PilotPlayer
             return table;
         }
 
-        //Method that speeks the file name of the media about to be played
+        //Method that speaks the file name of the media about to be played
         public void sayFileName(String fileName)
         {
-            if (speechOn)
+            if (UploadMedia.speek==true)
                 speech.Speak(fileName);
         }
 

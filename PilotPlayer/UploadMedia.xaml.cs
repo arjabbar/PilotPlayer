@@ -33,6 +33,7 @@ namespace PilotPlayer
         Timer btnuploadUnfader = new Timer();
         string[] mediaURLs;
         string projectFolder = System.Windows.Forms.Application.StartupPath + "\\..\\..\\";
+        public static bool speek = false;
         DataInterface dbInterface;
 
         public UploadMedia()
@@ -401,12 +402,12 @@ namespace PilotPlayer
 
         private void cbVoice_Checked(object sender, RoutedEventArgs e)
         {
-            dbInterface.speechOn = true;
+            speek = true;
         }
 
         private void cbVoice_Unchecked(object sender, RoutedEventArgs e)
         {
-            dbInterface.speechOn = false;
+            speek = false;
         }
     }
 }
